@@ -1,4 +1,4 @@
-<menus:MenuBars title="Menu Bars" maximized="true"
+<menus:MenuBars title="Synchronize" maximized="true"
     styles="{padding:{top:0, left:4, bottom:4, right:4}, showWindowControls:false}"
     xmlns:bxml="http://pivot.apache.org/bxml"
     xmlns:content="org.apache.pivot.wtk.content"
@@ -33,26 +33,22 @@
                 </Menu>
             </MenuBar.Item>
 
-            <MenuBar.Item buttonData="Edit">
-                <Menu>
-                    <Menu.Section>
-                        <Menu.Item action="cut">
-                            <buttonData>
-                                <content:MenuItemData text="Cut" keyboardShortcut="CMD-X"/>
-                            </buttonData>
-                        </Menu.Item>
-                        <Menu.Item action="copy">
-                            <buttonData>
-                                <content:MenuItemData text="Copy" keyboardShortcut="CMD-C"/>
-                            </buttonData>
-                        </Menu.Item>
-                        <Menu.Item action="paste">
-                            <buttonData>
-                                <content:MenuItemData text="Paste" keyboardShortcut="CMD-V"/>
-                            </buttonData>
-                        </Menu.Item>
-                    </Menu.Section>
-                </Menu>
+            <MenuBar.Item action="synchronize">
+            	<buttonData>
+            		<content:MenuItemData text="Sync"/>
+            	</buttonData>
+            </MenuBar.Item>
+
+            <MenuBar.Item action="help">
+            	<buttonData>
+            		<content:MenuItemData text="Help"/>
+            	</buttonData>
+            </MenuBar.Item>
+
+            <MenuBar.Item action="about">
+            	<buttonData>
+            		<content:MenuItemData text="About"/>
+            	</buttonData>
             </MenuBar.Item>
         </MenuBar>
     </menuBar>

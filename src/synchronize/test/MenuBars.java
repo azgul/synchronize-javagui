@@ -107,27 +107,21 @@ public class MenuBars extends Frame implements Bindable {
             }
         });
 
-        Action.getNamedActions().put("cut", new Action(false) {
+        Action.getNamedActions().put("synchronize", new Action(false) {
             @Override
             public void perform(Component source) {
-                TextInput textInput = (TextInput)MenuBars.this.getFocusDescendant();
-                textInput.cut();
             }
         });
 
-        Action.getNamedActions().put("copy", new Action(false) {
+        Action.getNamedActions().put("help", new Action(false) {
             @Override
             public void perform(Component source) {
-                TextInput textInput = (TextInput)MenuBars.this.getFocusDescendant();
-                textInput.copy();
             }
         });
 
-        Action.getNamedActions().put("paste", new Action(false) {
+        Action.getNamedActions().put("about", new Action(false) {
             @Override
             public void perform(Component source) {
-                TextInput textInput = (TextInput)MenuBars.this.getFocusDescendant();
-                textInput.paste();
             }
         });
     }
