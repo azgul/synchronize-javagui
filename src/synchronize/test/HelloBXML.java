@@ -1,10 +1,12 @@
 package synchronize.test;
 
+import org.apache.pivot.beans.BXML;
 import org.apache.pivot.beans.BXMLSerializer;
 import org.apache.pivot.collections.Map;
 import org.apache.pivot.wtk.Application;
 import org.apache.pivot.wtk.DesktopApplicationContext;
 import org.apache.pivot.wtk.Display;
+import org.apache.pivot.wtk.TabPane;
 import org.apache.pivot.wtk.Window;
 
 public class HelloBXML implements Application {
