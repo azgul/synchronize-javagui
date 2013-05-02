@@ -26,9 +26,9 @@ import org.apache.pivot.wtk.effects.DropShadowDecorator;
 
 public class MenuBars extends Frame implements Bindable {
     @BXML private FileBrowserSheet fileBrowserSheet;
-    @BXML private TabPane tabPane = null;
-	@BXML PushButton back;
-	@BXML Border backBorder;
+    @BXML private TabPane tabPane;
+	/*@BXML PushButton back;
+	@BXML Border backBorder;*/
 
     private MenuHandler menuHandler = new MenuHandler.Adapter() {
         TextInputContentListener textInputTextListener = new TextInputContentListener.Adapter() {
@@ -87,7 +87,7 @@ public class MenuBars extends Frame implements Bindable {
 
                 Component tab;
                 try {
-                    tab = new Border((Component)bxmlSerializer.readObject(MenuBars.class, "menubar.bxml"));
+                    tab = new Border((Component)bxmlSerializer.readObject(MenuBars.class, "document.bxml"));
                 } catch (IOException exception) {
                     throw new RuntimeException(exception);
                 } catch (SerializationException exception) {
@@ -129,9 +129,9 @@ public class MenuBars extends Frame implements Bindable {
     @Override
     public void initialize(Map<String, Object> namespace, URL location, Resources resources) {
     	
-    	DropShadowDecorator backDecorator = new DropShadowDecorator(1,3,3);
+    	/*DropShadowDecorator backDecorator = new DropShadowDecorator(1,3,3);
 		backDecorator.setShadowColor("#000000");
 		backDecorator.setShadowOpacity(0.8f);
-		backBorder.getDecorators().add(backDecorator);
+		backBorder.getDecorators().add(backDecorator);*/
     }
 }
