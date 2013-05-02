@@ -1,14 +1,66 @@
-<sync:SyncWindow title="Hello BXML!" maximized="true"
-	xmlns:bxml="http://pivot.apache.org/bxml"
-	xmlns:effects="org.apache.pivot.wtk.effects"
-	xmlns="org.apache.pivot.wtk"
-	xmlns:sync="synchronize.test">
-	
-	<BoxPane styles="{padding:{left:5,top:5,bottom:10,right:10}, horizontalAlignment:'right', verticalAlignment:'bottom'}">
+<menus:MenuBars title="Menu Bars" maximized="true"
+    styles="{padding:{top:0, left:4, bottom:4, right:4}, showWindowControls:false}"
+    xmlns:bxml="http://pivot.apache.org/bxml"
+    xmlns:content="org.apache.pivot.wtk.content"
+    xmlns:menus="synchronize.test"
+    xmlns="org.apache.pivot.wtk">
+    <bxml:define>
+        <FileBrowserSheet bxml:id="fileBrowserSheet"/>
+    </bxml:define>
+
+    <actionMappings>
+        <Window.ActionMapping action="fileNew" keyStroke="CMD-N"/>
+        <Window.ActionMapping action="fileOpen" keyStroke="CMD-O"/>
+    </actionMappings>
+
+    <menuBar>
+        <MenuBar>
+            <MenuBar.Item buttonData="File">
+                <Menu>
+                    <Menu.Section>
+                        <Menu.Item action="fileNew">
+                            <buttonData>
+                                <content:MenuItemData text="New" keyboardShortcut="CMD-N"/>
+                            </buttonData>
+                        </Menu.Item>
+
+                        <Menu.Item action="fileOpen">
+                            <buttonData>
+                                <content:MenuItemData text="Open" keyboardShortcut="CMD-O"/>
+                            </buttonData>
+                        </Menu.Item>
+                    </Menu.Section>
+                </Menu>
+            </MenuBar.Item>
+
+            <MenuBar.Item buttonData="Edit">
+                <Menu>
+                    <Menu.Section>
+                        <Menu.Item action="cut">
+                            <buttonData>
+                                <content:MenuItemData text="Cut" keyboardShortcut="CMD-X"/>
+                            </buttonData>
+                        </Menu.Item>
+                        <Menu.Item action="copy">
+                            <buttonData>
+                                <content:MenuItemData text="Copy" keyboardShortcut="CMD-C"/>
+                            </buttonData>
+                        </Menu.Item>
+                        <Menu.Item action="paste">
+                            <buttonData>
+                                <content:MenuItemData text="Paste" keyboardShortcut="CMD-V"/>
+                            </buttonData>
+                        </Menu.Item>
+                    </Menu.Section>
+                </Menu>
+            </MenuBar.Item>
+        </MenuBar>
+    </menuBar>
+    
+    <BoxPane styles="{padding:{left:5,top:5,bottom:10,right:10}, horizontalAlignment:'right', verticalAlignment:'bottom'}">
 		<Border bxml:id="backBorder" styles="{cornerRadii:0,padding:0,color:'#000000',thickness:2}">
 			<PushButton bxml:id="back" buttonData="Go Back &lt;-" styles="{backgroundColor:'#FFFFFF',borderColor:'0xFFFFFF00',padding:{left:8,right:8,top:5,bottom:5}}">
 			</PushButton>
 		</Border>
 	</BoxPane>
-	
-</sync:SyncWindow>
+</menus:MenuBars>

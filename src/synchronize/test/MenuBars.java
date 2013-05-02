@@ -17,14 +17,18 @@ import org.apache.pivot.wtk.FileBrowserSheet;
 import org.apache.pivot.wtk.Frame;
 import org.apache.pivot.wtk.MenuBar;
 import org.apache.pivot.wtk.MenuHandler;
+import org.apache.pivot.wtk.PushButton;
 import org.apache.pivot.wtk.TabPane;
 import org.apache.pivot.wtk.TextInput;
 import org.apache.pivot.wtk.TextInputContentListener;
 import org.apache.pivot.wtk.TextInputSelectionListener;
+import org.apache.pivot.wtk.effects.DropShadowDecorator;
 
 public class MenuBars extends Frame implements Bindable {
     @BXML private FileBrowserSheet fileBrowserSheet;
     @BXML private TabPane tabPane = null;
+	@BXML PushButton back;
+	@BXML Border backBorder;
 
     private MenuHandler menuHandler = new MenuHandler.Adapter() {
         TextInputContentListener textInputTextListener = new TextInputContentListener.Adapter() {
@@ -130,5 +134,10 @@ public class MenuBars extends Frame implements Bindable {
 
     @Override
     public void initialize(Map<String, Object> namespace, URL location, Resources resources) {
+    	
+    	DropShadowDecorator backDecorator = new DropShadowDecorator(1,3,3);
+		backDecorator.setShadowColor("#000000");
+		backDecorator.setShadowOpacity(0.8f);
+		backBorder.getDecorators().add(backDecorator);
     }
 }
