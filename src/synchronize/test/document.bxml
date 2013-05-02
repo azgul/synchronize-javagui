@@ -1,0 +1,5 @@
+<BoxPane xmlns:bxml="http://pivot.apache.org/bxml" xmlns="org.apache.pivot.wtk" orientation="vertical" styles="{padding:4}">
+<TextInput bxml:id="textInput1" text="abcd" menuHandler="$menuHandler"/>
+<TextInput bxml:id="textInput2" text="1234" menuHandler="$menuHandler"/>
+<PushButton bxml:id="pushButton" buttonData="Click Me" menuHandler="$menuHandler"/>
+</BoxPane>
