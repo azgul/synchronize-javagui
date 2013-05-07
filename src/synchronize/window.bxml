@@ -37,7 +37,7 @@
     </menuBar>
     
     <BoxPane orientation="vertical">
-	    <ImageView image="/synchronize/hp800booster-movie_topbanner_gb.jpg" height="222"/>
+	    <ImageView image="@../../res/images/hp800booster-movie_topbanner_gb.jpg" height="222"/>
 	    <SplitPane bxml:id="splitPane" orientation="horizontal" splitRatio="0.6">
 	        <left>
 	            
