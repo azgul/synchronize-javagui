@@ -1,0 +1,4 @@
+<BoxPane xmlns="org.apache.pivot.wtk"
+	xmlns:bxml="http://pivot.apache.org/bxml">
+	<TextInput bxml:id="searchField"/>
+</BoxPane>
