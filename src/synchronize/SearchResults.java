@@ -25,7 +25,7 @@ public class SearchResults extends ScrollPane implements Bindable {
 	@BXML private FillPane results = null;
 	
 	public void wtbContent(){
-		results.clear();
+		results.removeAll();
 		
 		try{
 			for(int i = 0; i < 2; i++)
@@ -37,14 +37,15 @@ public class SearchResults extends ScrollPane implements Bindable {
 	}
 	
 	public void refresh(List<SearchResult> items){
-		results.clear();
+		results.removeAll();
 		
-		BXMLSerializer bxmlSerializer = new BXMLSerializer();
 		
 		for( SearchResult item : items ){
 			try{
+				BXMLSerializer bxmlSerializer = new BXMLSerializer();
 				SearchResultItem result = (SearchResultItem)bxmlSerializer.readObject(SearchResultItem.class, "searchresultitem.bxml");
 				result.setAbstract(item.getAbstract());
+				
 				result.setModifiedDate(item.getModifiedDate());
 				result.setTitle("(" + item.getCategory() + ") " + item.getTitle());
 				result.setLanguage(SearchResultItem.LANG.getLanguage(item.getLanguage()));

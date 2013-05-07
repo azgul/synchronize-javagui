@@ -35,6 +35,9 @@ public class SearchResultItem extends Border implements Bindable {
 		}
 		
 		public static LANG getLanguage(String lang){
+			if (lang == null)
+				return LANG.EN;
+			
 			switch(lang.toLowerCase()){
 				case "dk":
 					return LANG.DK;

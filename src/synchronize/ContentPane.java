@@ -28,7 +28,10 @@ public class ContentPane extends TablePane implements Bindable {
 		Searcher searcher = new Searcher(new MMapIndexFactory());
 		
 		try{
+			long start = System.currentTimeMillis();
 			searchResultsTest.refresh(searcher.search(s));
+			long end = System.currentTimeMillis();
+			System.out.println("Search time: " + (end-start));
 		}catch(Exception e){
 			e.printStackTrace();
 		}
@@ -43,6 +46,9 @@ public class ContentPane extends TablePane implements Bindable {
 			searchField.getTextInputContentListeners().add(new TextInputContentListener.Adapter(){
 				@Override
 				public void textChanged(TextInput textInput) {
+					if(textInput.getText().length() < 3)
+						return;
+					
 					search(textInput.getText());
 				}
 			});
