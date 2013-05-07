@@ -8,6 +8,9 @@ import java.nio.file.Paths;
 
 import org.apache.pivot.beans.BXML;
 import org.apache.pivot.beans.Bindable;
+import org.apache.pivot.collections.ArrayList;
+import org.apache.pivot.collections.HashMap;
+import org.apache.pivot.collections.List;
 import org.apache.pivot.collections.Map;
 import org.apache.pivot.collections.Sequence;
 import org.apache.pivot.util.Resources;
@@ -15,6 +18,8 @@ import org.apache.pivot.wtk.PushButton;
 import org.apache.pivot.wtk.TablePane;
 import org.apache.pivot.wtk.Theme;
 import org.apache.pivot.wtk.TreeView;
+
+import com.google.gson.Gson;
 
 public class Categories extends TablePane implements Bindable {
 	@BXML private TreeView categories;
@@ -32,13 +37,63 @@ public class Categories extends TablePane implements Bindable {
 
 	@Override
 	public void initialize(Map<String, Object> namespace, URL location, Resources resources) {
-		parseJSON();
+		// read categories from json
+		//categories.setNodeRenderer(new CategoryRenderer());
+		Category[] cats = parseJSON();
+		List<Category> data = makeList(cats);
+		System.out.println(data.getLength());
+		//categories.setTreeData(data);
 		
 		reset.getButtonPressListeners().add(new ResetButton(categories));
 	}
 	
-	private void parseJSON() {
+	private List<Category> makeList(Category[] cats) {
+		CategoryParent root = getRootCategory();
+		ArrayList<Category> missingParent = new ArrayList<Category>();
+		// build parent list
+		HashMap<Integer,CategoryParent> parents = new HashMap<Integer,CategoryParent>();
+		for(Category cat : cats) {
+			if(cat.getParentId() != 0) {
+				CategoryParent tmp = null;
+				parents.put(cat.getParentId(),tmp);
+			}
+		}
 		
+		for(Category cat : cats) {
+			Category c;
+			if(parents.containsKey(cat.getId())) {
+				CategoryParent parent = new CategoryParent(cat);
+				c = parent;
+				parents.put(cat.getId(), parent);
+			} else {
+				c = cat;
+			}
+			
+			if(cat.getParentId() == 0) {
+				root.add(c);
+			} else {
+				if(parents.get(cat.getParentId()) != null)
+					parents.get(cat.getParentId()).add(c);
+				else
+					missingParent.add(c);
+			}
+		}
+		
+		for(Category cat : missingParent) {
+			parents.get(cat.getParentId()).add(cat);
+		}
+		
+		return root;
+	}
+	
+	private CategoryParent getRootCategory() {
+		Gson gson = new Gson();
+		return gson.fromJson("{'name':'Root','image':'','id':0,'parentId':0}", CategoryParent.class);
+	}
+	
+	private Category[] parseJSON() {
+		Gson gson = new Gson();
+		return gson.fromJson("[{'name':'Test','image':'http://google.com','id':1,'parentId':0},{'name':'TestChild','image':'http://google.com','id':2,'parentId':1}]", Category[].class);
 	}
 
 }
