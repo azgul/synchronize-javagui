@@ -2,28 +2,38 @@
 		xmlns:bxml="http://pivot.apache.org/bxml" 
 		xmlns="org.apache.pivot.wtk"
 		xmlns:sync="synchronize">
-	    <ScrollPane horizontalScrollBarPolicy="fill_to_capacity">
-	        <TreeView bxml:id="categories">
-	            <treeData>
-	                <TreeBranch xmlns="org.apache.pivot.wtk.content">
-					    <TreeBranch text="Activity" icon="@horizontal_folder_closed.png">
-					        <TreeNode text="Games" icon="@horizontal_folder_closed.png" />
-					        <TreeNode text="Sports" icon="@horizontal_folder_closed.png" />
-					    </TreeBranch>
-					    <TreeBranch text="Occasion" icon="@horizontal_folder_closed.png">
-					        <TreeNode text="Holidays" icon="@horizontal_folder_closed.png" />
-					    </TreeBranch>
-					    <TreeBranch text="Location" icon="@horizontal_folder_closed.png">
-					        <TreeNode text="Africa" icon="@horizontal_folder_closed.png"/>
-					        <TreeNode text="Antarctica" icon="@horizontal_folder_closed.png"/>
-					        <TreeNode text="Asia" icon="@horizontal_folder_closed.png"/>
-					        <TreeNode text="Australia" icon="@horizontal_folder_closed.png"/>
-					        <TreeNode text="Europe" icon="@horizontal_folder_closed.png"/>
-					        <TreeNode text="North America" icon="@horizontal_folder_closed.png"/>
-					        <TreeNode text="South America" icon="@horizontal_folder_closed.png" />
-					    </TreeBranch>
-					</TreeBranch>
-	            </treeData>
-	        </TreeView>
-	    </ScrollPane>
+		<columns>
+			<TablePane.Column width="1*" />
+		</columns>
+		<TablePane.Row height="1*">
+		    <ScrollPane horizontalScrollBarPolicy="fill_to_capacity">
+			        <TreeView bxml:id="categories" selectMode="multi">
+			            <treeData>
+			                <TreeBranch xmlns="org.apache.pivot.wtk.content">
+							    <TreeBranch text="Activity" expandedIcon="@horizontal_folder_open.png" icon="@horizontal_folder_closed.png">
+							        <TreeNode text="Games" icon="@horizontal_folder_closed.png" />
+							        <TreeNode text="Sports" icon="@horizontal_folder_closed.png" />
+							    </TreeBranch>
+							    <TreeBranch text="Occasion" expandedIcon="@horizontal_folder_open.png" icon="@horizontal_folder_closed.png">
+							        <TreeNode text="Holidays" icon="@horizontal_folder_closed.png" />
+							    </TreeBranch>
+							    <TreeBranch text="Location" expandedIcon="@horizontal_folder_open.png" icon="@horizontal_folder_closed.png">
+							        <TreeNode text="Africa" icon="@horizontal_folder_closed.png"/>
+							        <TreeNode text="Antarctica" icon="@horizontal_folder_closed.png"/>
+							        <TreeNode text="Asia" icon="@horizontal_folder_closed.png"/>
+							        <TreeNode text="Australia" icon="@horizontal_folder_closed.png"/>
+							        <TreeNode text="Europe" icon="@horizontal_folder_closed.png"/>
+							        <TreeNode text="North America" icon="@horizontal_folder_closed.png"/>
+							        <TreeNode text="South America" icon="@horizontal_folder_closed.png" />
+							    </TreeBranch>
+							</TreeBranch>
+			            </treeData>
+			        </TreeView>
+		    </ScrollPane>
+	    </TablePane.Row>
+	    <TablePane.Row height="25">
+	    	<BoxPane styles="{horizontalAlignment:'right'}">
+	    		<PushButton bxml:id="reset" buttonData="Reset" />
+	    	</BoxPane>
+	    </TablePane.Row>
 </sync:Categories>
