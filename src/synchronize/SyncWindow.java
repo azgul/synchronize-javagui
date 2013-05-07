@@ -1,32 +1,27 @@
 package synchronize;
 
-import java.io.IOException;
 import java.net.URL;
 
 import org.apache.pivot.beans.BXML;
-import org.apache.pivot.beans.BXMLSerializer;
 import org.apache.pivot.beans.Bindable;
 import org.apache.pivot.collections.Map;
-import org.apache.pivot.serialization.SerializationException;
 import org.apache.pivot.util.Resources;
 import org.apache.pivot.wtk.Action;
-import org.apache.pivot.wtk.Border;
 import org.apache.pivot.wtk.Component;
-import org.apache.pivot.wtk.DesktopApplicationContext;
 import org.apache.pivot.wtk.FileBrowserSheet;
 import org.apache.pivot.wtk.Frame;
 import org.apache.pivot.wtk.MenuBar;
 import org.apache.pivot.wtk.MenuHandler;
-import org.apache.pivot.wtk.PushButton;
 import org.apache.pivot.wtk.TabPane;
 import org.apache.pivot.wtk.TextInput;
 import org.apache.pivot.wtk.TextInputContentListener;
 import org.apache.pivot.wtk.TextInputSelectionListener;
-import org.apache.pivot.wtk.effects.DropShadowDecorator;
+import org.apache.pivot.wtk.TreeView;
 
 public class SyncWindow extends Frame implements Bindable {
     @BXML private FileBrowserSheet fileBrowserSheet;
     @BXML private TabPane tabPane;
+    @BXML private TreeView categories;
 	/*@BXML PushButton back;
 	@BXML Border backBorder;*/
 
@@ -106,6 +101,7 @@ public class SyncWindow extends Frame implements Bindable {
 
     @Override
     public void initialize(Map<String, Object> namespace, URL location, Resources resources) {
+    	    	
     	
     	/*DropShadowDecorator backDecorator = new DropShadowDecorator(1,3,3);
 		backDecorator.setShadowColor("#000000");
