@@ -48,14 +48,4 @@
         </SplitPane>
     </BoxPane>
     
-	<Border styles="{backgroundColor:null, padding:2}">
-		<TabPane bxml:id="tabPane"/>
-	    <!--BoxPane styles="{padding:{left:5,top:5,bottom:10,right:10}, horizontalAlignment:'right', verticalAlignment:'bottom'}">
-			<Border bxml:id="backBorder" styles="{cornerRadii:0,padding:0,color:'#000000',thickness:2}">
-				<PushButton bxml:id="back" buttonData="Go Back &lt;-" styles="{backgroundColor:'#FFFFFF',borderColor:'0xFFFFFF00',padding:{left:8,right:8,top:5,bottom:5}}">
-				</PushButton>
-			</Border>
-		</BoxPane-->
-	</Border>
-    
 </menus:MenuBars>
