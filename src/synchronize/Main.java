@@ -22,6 +22,10 @@ public class Main implements Application {
         throws Exception {
         BXMLSerializer bxmlSerializer = new BXMLSerializer();
         window = (Window)bxmlSerializer.readObject(Main.class, "window.bxml");
+		
+		ResultItem result = (ResultItem)bxmlSerializer.readObject(ResultItem.class, "resultitem.bxml");
+		
+		
         window.open(display);
     }
 
