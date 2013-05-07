@@ -1,4 +1,4 @@
-<menus:MenuBars title="Synchronize" maximized="true"
+<menus:SyncWindow title="Synchronize" maximized="true"
     styles="{padding:{top:0, left:4, bottom:4, right:4}, showWindowControls:false}"
     xmlns:bxml="http://pivot.apache.org/bxml"
     xmlns:content="org.apache.pivot.wtk.content"
@@ -38,9 +38,9 @@
     
     <BoxPane orientation="vertical">
 	    <ImageView image="@../../res/images/hp800booster-movie_topbanner_gb.jpg" height="222"/>
-	    <SplitPane bxml:id="splitPane" orientation="horizontal" splitRatio="0.6">
+	    <SplitPane bxml:id="splitPane" orientation="horizontal" splitRatio="0.6" preferredWidth="400" preferredHeight="400">
 	        <left>
-	            
+            	<bxml:include src="categories.bxml"/>
 	        </left>
 	        <right>
 	        	<bxml:include src="rightpane.bxml"/>
@@ -48,4 +48,4 @@
         </SplitPane>
     </BoxPane>
     
-</menus:MenuBars>
+</menus:SyncWindow>
