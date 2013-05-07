@@ -7,8 +7,6 @@ import org.apache.pivot.wtk.Application;
 import org.apache.pivot.wtk.DesktopApplicationContext;
 import org.apache.pivot.wtk.Display;
 import org.apache.pivot.wtk.TextInput;
-import org.apache.pivot.wtk.Theme;
-import org.apache.pivot.wtk.TreeView;
 import org.apache.pivot.wtk.Window;
 
 public class Main implements Application {

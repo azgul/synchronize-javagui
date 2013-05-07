@@ -3,9 +3,6 @@
 	xmlns:bxml="http://pivot.apache.org/bxml"
 	xmlns:sync="synchronize"
 	TablePane.columnSpan="3" 
-	horizontalScrollBarPolicy="fill"
-	>
-
-	<FillPane bxml:id="results" orientation="vertical">
-	</FillPane>
+	horizontalScrollBarPolicy="fill">
+	<FillPane bxml:id="results" orientation="vertical"/>
 </sync:SearchResults>
