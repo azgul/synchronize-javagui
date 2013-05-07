@@ -1,12 +1,11 @@
-<ScrollPane xmlns="org.apache.pivot.wtk" xmlns:bxml="http://pivot.apache.org/bxml" TablePane.columnSpan="3" horizontalScrollBarPolicy="fill" verticalScrollBarPolicy="fill_to_capacity">
+<sync:SearchResults 
+	xmlns="org.apache.pivot.wtk" 
+	xmlns:bxml="http://pivot.apache.org/bxml"
+	xmlns:sync="synchronize"
+	TablePane.columnSpan="3" 
+	horizontalScrollBarPolicy="fill"
+	>
+
 	<FillPane bxml:id="results" orientation="vertical">
-		<bxml:include src="resultitem.bxml"/>
-		<bxml:include src="resultitem.bxml"/>
-		<bxml:include src="resultitem.bxml"/>
-		<bxml:include src="resultitem.bxml"/>
-		<bxml:include src="resultitem.bxml"/>
-		<bxml:include src="resultitem.bxml"/>
-		<bxml:include src="resultitem.bxml"/>
-		<bxml:include src="resultitem.bxml"/>
 	</FillPane>
-</ScrollPane>
+</sync:SearchResults>
