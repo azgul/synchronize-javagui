@@ -2,7 +2,7 @@
     styles="{padding:{top:0, left:4, bottom:4, right:4}, showWindowControls:false}"
     xmlns:bxml="http://pivot.apache.org/bxml"
     xmlns:content="org.apache.pivot.wtk.content"
-    xmlns:menus="synchronize.test"
+    xmlns:menus="synchronize"
     xmlns="org.apache.pivot.wtk">
     <bxml:define>
         <FileBrowserSheet bxml:id="fileBrowserSheet"/>
@@ -37,7 +37,7 @@
     </menuBar>
     
     <BoxPane>
-	    <ImageView image="/synchronize/test/hp800booster-movie_topbanner_gb.jpg"/>
+	    <ImageView image="/synchronize/hp800booster-movie_topbanner_gb.jpg"/>
 	    <SplitPane bxml:id="splitPane" orientation="horizontal" splitRatio="0.6">
 	        <left>
 	            

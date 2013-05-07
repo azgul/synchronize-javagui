@@ -1,4 +1,4 @@
-package synchronize.test;
+package synchronize;
 
 import java.io.IOException;
 import java.net.URL;
