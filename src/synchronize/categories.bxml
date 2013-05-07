@@ -10,21 +10,47 @@
 			        <TreeView bxml:id="categories" selectMode="multi">
 			            <treeData>
 			                <TreeBranch xmlns="org.apache.pivot.wtk.content">
-							    <TreeBranch text="Activity" expandedIcon="@horizontal_folder_open.png" icon="@horizontal_folder_closed.png">
-							        <TreeNode text="Games" icon="@horizontal_folder_closed.png" />
-							        <TreeNode text="Sports" icon="@horizontal_folder_closed.png" />
+							    <TreeBranch text="Piglets" expandedIcon="@horizontal_folder_open.png" icon="@horizontal_folder_closed.png">
+							        <TreeNode text="Benefits" icon="@horizontal_folder_closed.png" />
+							        <TreeNode text="Product documentation" icon="@horizontal_folder_closed.png" />
+							        <TreeNode text="Feeding trials" icon="@horizontal_folder_closed.png" />
+							        <TreeNode text="Cases" icon="@horizontal_folder_closed.png" />
+							        <TreeNode text="Formulations" icon="@horizontal_folder_closed.png" />
+							        <TreeNode text="Articles" icon="@horizontal_folder_closed.png" />
+							        <TreeNode text="Marketing material" icon="@horizontal_folder_closed.png" />
 							    </TreeBranch>
-							    <TreeBranch text="Occasion" expandedIcon="@horizontal_folder_open.png" icon="@horizontal_folder_closed.png">
-							        <TreeNode text="Holidays" icon="@horizontal_folder_closed.png" />
+							    <TreeBranch text="Calves" expandedIcon="@horizontal_folder_open.png" icon="@horizontal_folder_closed.png">
+							        <TreeNode text="Benefits" icon="@horizontal_folder_closed.png" />
+							        <TreeNode text="Product documentation" icon="@horizontal_folder_closed.png" />
+							        <TreeNode text="Feeding trials" icon="@horizontal_folder_closed.png" />
+							        <TreeNode text="Formulations" icon="@horizontal_folder_closed.png" />
+							        <TreeNode text="Articles" icon="@horizontal_folder_closed.png" />
+							        <TreeNode text="Marketing material" icon="@horizontal_folder_closed.png" />
 							    </TreeBranch>
-							    <TreeBranch text="Location" expandedIcon="@horizontal_folder_open.png" icon="@horizontal_folder_closed.png">
-							        <TreeNode text="Africa" icon="@horizontal_folder_closed.png"/>
-							        <TreeNode text="Antarctica" icon="@horizontal_folder_closed.png"/>
-							        <TreeNode text="Asia" icon="@horizontal_folder_closed.png"/>
-							        <TreeNode text="Australia" icon="@horizontal_folder_closed.png"/>
-							        <TreeNode text="Europe" icon="@horizontal_folder_closed.png"/>
-							        <TreeNode text="North America" icon="@horizontal_folder_closed.png"/>
-							        <TreeNode text="South America" icon="@horizontal_folder_closed.png" />
+							    <TreeBranch text="Pets" expandedIcon="@horizontal_folder_open.png" icon="@horizontal_folder_closed.png">
+							        <TreeNode text="Benefits" icon="@horizontal_folder_closed.png" />
+							        <TreeNode text="Product documentation" icon="@horizontal_folder_closed.png" />
+							        <TreeNode text="Feeding trials" icon="@horizontal_folder_closed.png" />
+							        <TreeNode text="Extrusion trials" icon="@horizontal_folder_closed.png" />
+							        <TreeNode text="Partial wheat gluten replacement" icon="@horizontal_folder_closed.png" />
+							        <TreeNode text="Articles" icon="@horizontal_folder_closed.png" />
+							        <TreeNode text="Marketing material" icon="@horizontal_folder_closed.png" />
+							    </TreeBranch>
+							    <TreeBranch text="Poultry" expandedIcon="@horizontal_folder_open.png" icon="@horizontal_folder_closed.png">
+							        <TreeNode text="Benefits" icon="@horizontal_folder_closed.png" />
+							        <TreeNode text="Product documentation" icon="@horizontal_folder_closed.png" />
+							        <TreeNode text="Feeding trials" icon="@horizontal_folder_closed.png" />
+							        <TreeNode text="Formulations" icon="@horizontal_folder_closed.png" />
+							        <TreeNode text="Flyers" icon="@horizontal_folder_closed.png" />
+							        <TreeNode text="Articles" icon="@horizontal_folder_closed.png" />
+							        <TreeNode text="Marketing material" icon="@horizontal_folder_closed.png" />
+							    </TreeBranch>
+							    <TreeBranch text="Aqua" expandedIcon="@horizontal_folder_open.png" icon="@horizontal_folder_closed.png">
+							        <TreeNode text="Benefits" icon="@horizontal_folder_closed.png" />
+							        <TreeNode text="Product documentation" icon="@horizontal_folder_closed.png" />
+							        <TreeNode text="Feeding trials" icon="@horizontal_folder_closed.png" />
+							        <TreeNode text="Articles" icon="@horizontal_folder_closed.png" />
+							        <TreeNode text="Marketing material" icon="@horizontal_folder_closed.png" />
 							    </TreeBranch>
 							</TreeBranch>
 			            </treeData>
