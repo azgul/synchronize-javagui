@@ -101,8 +101,7 @@ public class SyncWindow extends Frame implements Bindable {
 
     @Override
     public void initialize(Map<String, Object> namespace, URL location, Resources resources) {
-    	    	
-    	
+		
     	/*DropShadowDecorator backDecorator = new DropShadowDecorator(1,3,3);
 		backDecorator.setShadowColor("#000000");
 		backDecorator.setShadowOpacity(0.8f);

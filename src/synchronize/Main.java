@@ -1,12 +1,15 @@
 package synchronize;
 
+import java.net.URL;
 import org.apache.pivot.beans.BXML;
 import org.apache.pivot.beans.BXMLSerializer;
 import org.apache.pivot.collections.Map;
+import org.apache.pivot.util.Resources;
 import org.apache.pivot.wtk.Application;
 import org.apache.pivot.wtk.DesktopApplicationContext;
 import org.apache.pivot.wtk.Display;
 import org.apache.pivot.wtk.TextInput;
+import org.apache.pivot.wtk.TextInputContentListener;
 import org.apache.pivot.wtk.Window;
 
 public class Main implements Application {

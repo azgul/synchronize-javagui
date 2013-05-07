@@ -1,4 +1,4 @@
-<TablePane bxml:id="contentPane" xmlns="org.apache.pivot.wtk"
+<sync:ContentPane xmlns:sync="synchronize" bxml:id="contentPane" xmlns="org.apache.pivot.wtk"
 	xmlns:bxml="http://pivot.apache.org/bxml" styles="{horizontalSpacing:10, verticalSpacing:10}">
 		<columns>
 			<TablePane.Column width="1*"/>
@@ -13,6 +13,6 @@
 				<TablePane.Filler/>
 		</TablePane.Row>
 		<TablePane.Row height="1*">
-			<bxml:include src="searchresult.bxml"/>
+			<bxml:include bxml:id="searchResultsTest" src="searchresult.bxml"/>
 		</TablePane.Row>
-	</TablePane>
+	</sync:ContentPane>

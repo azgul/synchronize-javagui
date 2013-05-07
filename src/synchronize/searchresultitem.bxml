@@ -12,6 +12,7 @@
 				<PushButton bxml:id="viewPdf" buttonData="View PDF" preferredHeight="50"/>
 				<Label text="MODIFIED" styles="{color:'#cccccc',font:{size: 10},horizontalAlignment:'center'}"/>
 				<Label bxml:id="modifiedDate" text="12-12-2012 12:12" styles="{horizontalAlignment:'center'}"/>
+				<ImageView bxml:id="languageImage" image="@../../res/flags/dk.png" height="11" width="16"/>
 			</BoxPane>
 
 		</TablePane.Row>
