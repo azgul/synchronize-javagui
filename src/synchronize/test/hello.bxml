@@ -36,6 +36,10 @@
         </MenuBar>
     </menuBar>
     
+    <BoxPane styles="{padding:4, verticalAlignment:'center'}">
+	    <ImageView image="hp800booster-movie_topbanner_gb.jpg"/>
+    </BoxPane>
+    
 	<Border styles="{backgroundColor:null, padding:2}">
 		<TabPane bxml:id="tabPane"/>
 	    <!--BoxPane styles="{padding:{left:5,top:5,bottom:10,right:10}, horizontalAlignment:'right', verticalAlignment:'bottom'}">
