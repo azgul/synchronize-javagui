@@ -79,31 +79,9 @@ public class MenuBars extends Frame implements Bindable {
     };
 
     public MenuBars() {
-        Action.getNamedActions().put("fileNew", new Action() {
+        Action.getNamedActions().put("file", new Action(false) {
             @Override
             public void perform(Component source) {
-                BXMLSerializer bxmlSerializer = new BXMLSerializer();
-                bxmlSerializer.getNamespace().put("menuHandler", menuHandler);
-
-                Component tab;
-                try {
-                    tab = new Border((Component)bxmlSerializer.readObject(MenuBars.class, "document.bxml"));
-                } catch (IOException exception) {
-                    throw new RuntimeException(exception);
-                } catch (SerializationException exception) {
-                    throw new RuntimeException(exception);
-                }
-
-                tabPane.getTabs().add(tab);
-                TabPane.setTabData(tab, "Document " + tabPane.getTabs().getLength());
-                tabPane.setSelectedIndex(tabPane.getTabs().getLength() - 1);
-            }
-        });
-
-        Action.getNamedActions().put("fileOpen", new Action() {
-            @Override
-            public void perform(Component source) {
-                fileBrowserSheet.open(MenuBars.this);
             }
         });
 

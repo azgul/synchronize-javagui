@@ -8,29 +8,12 @@
         <FileBrowserSheet bxml:id="fileBrowserSheet"/>
     </bxml:define>
 
-    <actionMappings>
-        <Window.ActionMapping action="fileNew" keyStroke="CMD-N"/>
-        <Window.ActionMapping action="fileOpen" keyStroke="CMD-O"/>
-    </actionMappings>
-
     <menuBar>
         <MenuBar>
-            <MenuBar.Item buttonData="File">
-                <Menu>
-                    <Menu.Section>
-                        <Menu.Item action="fileNew">
-                            <buttonData>
-                                <content:MenuItemData text="New" keyboardShortcut="CMD-N"/>
-                            </buttonData>
-                        </Menu.Item>
-
-                        <Menu.Item action="fileOpen">
-                            <buttonData>
-                                <content:MenuItemData text="Open" keyboardShortcut="CMD-O"/>
-                            </buttonData>
-                        </Menu.Item>
-                    </Menu.Section>
-                </Menu>
+            <MenuBar.Item action="file">
+                <buttonData>
+            		<content:MenuItemData text="File"/>
+            	</buttonData>
             </MenuBar.Item>
 
             <MenuBar.Item action="synchronize">
