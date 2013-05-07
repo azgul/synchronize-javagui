@@ -1,0 +1,30 @@
+<Border xmlns:bxml="http://pivot.apache.org/bxml" xmlns="org.apache.pivot.wtk">
+    <ScrollPane horizontalScrollBarPolicy="fill_to_capacity">
+        <TreeView>
+            <treeData>
+                <TreeBranch xmlns="org.apache.pivot.wtk.content">
+				    <TreeBranch text="Activity" icon="@horizontal_folder_closed.png">
+				        <TreeBranch text="Games" icon="@horizontal_folder_closed.png">
+				        </TreeBranch>
+				        <TreeBranch text="Sports" icon="@horizontal_folder_closed.png">
+				        </TreeBranch>
+				    </TreeBranch>
+				    <TreeBranch text="Occasion" icon="@horizontal_folder_closed.png">
+				        <TreeBranch text="Holidays" icon="@horizontal_folder_closed.png">
+				        </TreeBranch>
+				    </TreeBranch>
+				    <TreeBranch text="Location" icon="@horizontal_folder_closed.png">
+				        <TreeNode text="Africa" icon="@horizontal_folder_closed.png"/>
+				        <TreeNode text="Antarctica" icon="@horizontal_folder_closed.png"/>
+				        <TreeNode text="Asia" icon="@horizontal_folder_closed.png"/>
+				        <TreeNode text="Australia" icon="@horizontal_folder_closed.png"/>
+				        <TreeNode text="Europe" icon="@horizontal_folder_closed.png"/>
+				        <TreeNode text="North America" icon="@horizontal_folder_closed.png"/>
+				        <TreeBranch text="South America" icon="@horizontal_folder_closed.png">
+				        </TreeBranch>
+				    </TreeBranch>
+				</TreeBranch>
+            </treeData>
+        </TreeView>
+    </ScrollPane>
+</Border>

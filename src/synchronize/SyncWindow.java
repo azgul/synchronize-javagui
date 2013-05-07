@@ -24,7 +24,7 @@ import org.apache.pivot.wtk.TextInputContentListener;
 import org.apache.pivot.wtk.TextInputSelectionListener;
 import org.apache.pivot.wtk.effects.DropShadowDecorator;
 
-public class MenuBars extends Frame implements Bindable {
+public class SyncWindow extends Frame implements Bindable {
     @BXML private FileBrowserSheet fileBrowserSheet;
     @BXML private TabPane tabPane;
 	/*@BXML PushButton back;
@@ -78,7 +78,7 @@ public class MenuBars extends Frame implements Bindable {
         }
     };
 
-    public MenuBars() {
+    public SyncWindow() {
         Action.getNamedActions().put("file", new Action(false) {
             @Override
             public void perform(Component source) {
