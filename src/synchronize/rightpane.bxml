@@ -1,4 +1,18 @@
-<BoxPane xmlns="org.apache.pivot.wtk"
-	xmlns:bxml="http://pivot.apache.org/bxml">
-	<TextInput bxml:id="searchField"/>
-</BoxPane>
+<TablePane bxml:id="contentPane" xmlns="org.apache.pivot.wtk"
+	xmlns:bxml="http://pivot.apache.org/bxml" styles="{horizontalSpacing:10, verticalSpacing:10}">
+		<columns>
+			<TablePane.Column width="1*"/>
+			<TablePane.Column width="75"/>
+			<TablePane.Column width="200"/>
+			<TablePane.Column width="0"/>
+		</columns>
+		<TablePane.Row height="25"> 
+			<TextInput bxml:id="searchField"/>
+				<Label text="Sort by" styles="{horizontalAlignment:'right', verticalAlignment:'center'}"/>	
+				<ListButton bxml:id="listButton" listData="['Modified date (desc)', 'Modified date (asc)']"/>
+				<TablePane.Filler/>
+		</TablePane.Row>
+		<TablePane.Row height="1*">
+			<bxml:include src="searchresult.bxml"/>
+		</TablePane.Row>
+	</TablePane>
