@@ -164,3 +164,6 @@ pip-log.txt
 
 # crap
 *.class
+/nbproject/*
+build.xml
+manifest.mf
