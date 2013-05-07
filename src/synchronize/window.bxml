@@ -36,14 +36,14 @@
         </MenuBar>
     </menuBar>
     
-    <BoxPane>
+    <BoxPane orientation="vertical">
 	    <ImageView image="/synchronize/hp800booster-movie_topbanner_gb.jpg"/>
 	    <SplitPane bxml:id="splitPane" orientation="horizontal" splitRatio="0.6">
 	        <left>
 	            
 	        </left>
 	        <right>
-	        
+	        	<bxml:include src="rightpane.bxml"/>
 	        </right>
         </SplitPane>
     </BoxPane>
