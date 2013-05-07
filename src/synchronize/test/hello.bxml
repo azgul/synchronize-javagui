@@ -36,8 +36,16 @@
         </MenuBar>
     </menuBar>
     
-    <BoxPane styles="{padding:4, verticalAlignment:'center'}">
-	    <ImageView image="hp800booster-movie_topbanner_gb.jpg"/>
+    <BoxPane>
+	    <ImageView image="/synchronize/test/hp800booster-movie_topbanner_gb.jpg"/>
+	    <SplitPane bxml:id="splitPane" orientation="horizontal" splitRatio="0.6">
+	        <left>
+	            
+	        </left>
+	        <right>
+	        
+	        </right>
+        </SplitPane>
     </BoxPane>
     
 	<Border styles="{backgroundColor:null, padding:2}">
