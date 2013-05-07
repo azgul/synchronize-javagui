@@ -36,16 +36,25 @@
         </MenuBar>
     </menuBar>
     
-    <BoxPane orientation="vertical">
-	    <ImageView image="@../../res/images/hp800booster-movie_topbanner_gb.jpg" height="222"/>
-	    <SplitPane bxml:id="splitPane" orientation="horizontal" splitRatio="0.6" preferredWidth="400" preferredHeight="400">
-	        <left>
-            	<bxml:include src="categories.bxml"/>
-	        </left>
-	        <right>
-	        	<bxml:include src="rightpane.bxml"/>
-	        </right>
-        </SplitPane>
-    </BoxPane>
+    <Border>
+    	<TablePane bxml:id="tablePane">
+    		<columns>
+    			<TablePane.Column width="-1"/>
+    		</columns>
+    		<TablePane.Row height="222">
+    			<ImageView image="@../../res/images/hp800booster-movie_topbanner_gb.jpg" height="222"/>
+			</TablePane.Row>
+			<TablePane.Row height="1*">
+			    <SplitPane bxml:id="splitPane" orientation="horizontal" splitRatio="0.15">
+			        <left>
+		            	<bxml:include src="categories.bxml"/>
+			        </left>
+			        <right>
+			        	<bxml:include src="rightpane.bxml"/>
+			        </right>
+		        </SplitPane>
+	        </TablePane.Row>
+	    </TablePane>
+    </Border>
     
 </menus:SyncWindow>
