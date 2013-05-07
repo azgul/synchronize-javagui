@@ -1,5 +1,6 @@
 package synchronize;
 
+import org.apache.pivot.beans.BXML;
 import org.apache.pivot.beans.BXMLSerializer;
 import org.apache.pivot.collections.Map;
 import org.apache.pivot.wtk.Application;
@@ -10,7 +11,7 @@ import org.apache.pivot.wtk.Window;
 
 public class Main implements Application {
     private Window window = null;
-    private TextInput searchField = null;
+    @BXML private TextInput searchField;
     
     public static void main(String[] args) {
     	DesktopApplicationContext.main(Main.class, args);
@@ -20,7 +21,6 @@ public class Main implements Application {
     public void startup(Display display, Map<String, String> properties)
         throws Exception {
         BXMLSerializer bxmlSerializer = new BXMLSerializer();
-        
         window = (Window)bxmlSerializer.readObject(Main.class, "window.bxml");
         window.open(display);
     }

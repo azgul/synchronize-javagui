@@ -39,7 +39,7 @@
     <Border>
     	<TablePane bxml:id="tablePane">
     		<columns>
-    			<TablePane.Column width="-1"/>
+    			<TablePane.Column width="1*"/>
     		</columns>
     		<TablePane.Row height="222">
     			<ImageView image="@../../res/images/hp800booster-movie_topbanner_gb.jpg" height="222"/>
