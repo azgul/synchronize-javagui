@@ -24,9 +24,17 @@ public class NodeListener implements ComponentMouseButtonListener {
 	}
 
 	@Override
-	public boolean mouseDown(Component arg0, Button arg1, int arg2, int arg3) {
+	public boolean mouseDown(Component component, Button button, int x, int y) {
 		// TODO Auto-generated method stub
-		return false;
+		TreeView view = (TreeView)component;
+		Path path = view.getNodeAt(y);
+		
+		//TreeNode node = (TreeNode)Sequence.Tree.get(view.getTreeData(), path);
+		if(view.getSelectedPaths().indexOf(path) != -1)
+			System.out.println("Mouse down on selected path");
+		else
+			System.out.println("Mouse down on not selected path");
+		return true;
 	}
 
 	@Override
