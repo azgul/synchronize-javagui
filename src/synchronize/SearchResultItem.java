@@ -4,17 +4,23 @@
  */
 package synchronize;
 
+import java.awt.Desktop;
+import java.io.File;
+import java.io.IOException;
 import java.net.MalformedURLException;
+import java.net.URI;
 import java.net.URL;
+import java.nio.file.Paths;
 import org.apache.pivot.beans.BXML;
 import org.apache.pivot.beans.Bindable;
 import org.apache.pivot.collections.Map;
 import org.apache.pivot.util.Resources;
 import org.apache.pivot.wtk.Border;
+import org.apache.pivot.wtk.Button;
+import org.apache.pivot.wtk.ButtonPressListener;
 import org.apache.pivot.wtk.ImageView;
 import org.apache.pivot.wtk.Label;
 import org.apache.pivot.wtk.PushButton;
-import org.apache.pivot.wtk.media.Image;
 
 /**
  *
@@ -69,6 +75,7 @@ public class SearchResultItem extends Border implements Bindable {
 	@BXML private PushButton viewPdf = null;
 	@BXML private Label modifiedDate = null;
 	@BXML private ImageView languageImage = null;
+	private String pdfPath = "";
 
 	@Override
 	public void initialize(Map<String, Object> map, URL url, Resources rsrcs) {
@@ -83,9 +90,32 @@ public class SearchResultItem extends Border implements Bindable {
 		modifiedDate.setText(s);
 	}
 	
+	public void setPdfPath(String s){
+		pdfPath = s;
+		viewPdf.getButtonPressListeners().add(new ButtonPressListener() {
+
+			@Override
+			public void buttonPressed(Button button) {
+				System.out.println("Opening PDF!");
+				openPdf();
+			}
+		});
+	}
+	
+	protected void openPdf(){
+		try {
+			File pdfFile = new File(pdfPath);
+			if (pdfFile.exists() && Desktop.isDesktopSupported()) 
+				Desktop.getDesktop().browse(new URI(pdfFile.toURI().toString().replace("file:/","")));
+
+		} catch (Exception ex) {
+			ex.printStackTrace();
+		}
+	}
+	
 	public void setLanguage(LANG lang){
 		try{
-		languageImage.setImage(lang.getUrl());
+			languageImage.setImage(lang.getUrl());
 		}catch(Exception e){
 			// TRollfacecee
 			e.printStackTrace();

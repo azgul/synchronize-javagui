@@ -44,11 +44,13 @@ public class SearchResults extends ScrollPane implements Bindable {
 			try{
 				BXMLSerializer bxmlSerializer = new BXMLSerializer();
 				SearchResultItem result = (SearchResultItem)bxmlSerializer.readObject(SearchResultItem.class, "searchresultitem.bxml");
-				result.setAbstract(item.getAbstract());
+				//result.setAbstract(item.getAbstract());
+				result.setAbstract("Bacon ipsum dolor sit amet meatball drumstick spare ribs capicola, salami corned beef t-bone andouille cow short ribs ham. Sirloin turkey t-bone doner hamburger frankfurter ham hock short ribs pig cow venison jerky. Capicola tenderloin ground round, venison shoulder bresaola pork hamburger chicken pastrami ham hock chuck tail short loin brisket.");
 				
 				result.setModifiedDate(item.getModifiedDate());
 				result.setTitle("(" + item.getCategory() + ") " + item.getTitle());
 				result.setLanguage(SearchResultItem.LANG.getLanguage(item.getLanguage()));
+				result.setPdfPath(item.getPdf().getAbsolutePath());
 				
 				results.add(result);
 			}catch(IOException e){

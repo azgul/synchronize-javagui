@@ -13,6 +13,6 @@
 				<TablePane.Filler/>
 		</TablePane.Row>
 		<TablePane.Row height="1*">
-			<bxml:include bxml:id="searchResultsTest" src="searchresult.bxml"/>
+			<bxml:include bxml:id="searchResults" src="searchresult.bxml"/>
 		</TablePane.Row>
 	</sync:ContentPane>
