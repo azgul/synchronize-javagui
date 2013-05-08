@@ -95,5 +95,4 @@ public class Categories extends TablePane implements Bindable {
 		Gson gson = new Gson();
 		return gson.fromJson("[{'name':'Test','image':'http://google.com','id':1,'parentId':0},{'name':'TestChild','image':'http://google.com','id':2,'parentId':1}]", Category[].class);
 	}
-
 }
