@@ -21,7 +21,7 @@ public class Main implements Application {
     public void startup(Display display, Map<String, String> properties)
         throws Exception {
         BXMLSerializer bxmlSerializer = new BXMLSerializer();
-        window = (Window)bxmlSerializer.readObject(Main.class, "window.bxml");		
+        window = (Window)bxmlSerializer.readObject(Main.class, "/synchronize/bxml/window.bxml");		
         window.open(display);
     }
 
