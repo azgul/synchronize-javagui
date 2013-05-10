@@ -1,4 +1,4 @@
-package synchronize;
+package synchronize.gui;
 
 import java.util.Comparator;
 import java.util.Iterator;
@@ -8,17 +8,23 @@ import org.apache.pivot.collections.List;
 import org.apache.pivot.collections.ListListener;
 import org.apache.pivot.collections.Sequence;
 import org.apache.pivot.util.ListenerList;
+import org.apache.pivot.wtk.media.Image;
+
+import synchronize.api.Category;
 
 public class CategoryParent extends Category implements List<Category> {
 	
 	protected transient ArrayList<Category> children;
+    private ListListenerList<Category> listListeners = new ListListenerList<Category>();
+    
+    protected transient Image expandedIcon;
 	
 	public CategoryParent(Category category) {
+		this();
 		id = category.getId();
 		parentId = category.getParentId();
 		name = category.getName();
 		image = category.getImage();
-		children = new ArrayList<Category>();
 	}
 	
 	public CategoryParent() {
@@ -50,7 +56,7 @@ public class CategoryParent extends Category implements List<Category> {
 	
 				@Override
 				public int compare(Category cat1, Category cat2) {
-					return cat1.id - cat2.id;
+					return cat1.getId() - cat2.getId();
 				}
 				
 			};
@@ -86,7 +92,7 @@ public class CategoryParent extends Category implements List<Category> {
 
 	@Override
 	public ListenerList<ListListener<Category>> getListListeners() {
-		return null;
+		return listListeners;
 	}
 
 	@Override

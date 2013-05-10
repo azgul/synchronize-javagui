@@ -1,4 +1,4 @@
-package synchronize;
+package synchronize.gui;
 
 import java.net.URL;
 

@@ -1,17 +1,16 @@
-package synchronize;
+package synchronize.gui;
 
 import java.awt.Color;
 import java.awt.Font;
-import java.awt.Graphics2D;
+import java.nio.file.FileSystems;
 
-import org.apache.pivot.collections.Dictionary;
 import org.apache.pivot.collections.Sequence.Tree.Path;
-import org.apache.pivot.wtk.Dimensions;
 import org.apache.pivot.wtk.TreeView;
 import org.apache.pivot.wtk.TreeView.NodeCheckState;
-import org.apache.pivot.wtk.content.TreeBranch;
 import org.apache.pivot.wtk.content.TreeViewNodeRenderer;
 import org.apache.pivot.wtk.media.Image;
+
+import synchronize.api.Category;
 
 public class CategoryRenderer extends TreeViewNodeRenderer {
 
@@ -27,17 +26,23 @@ public class CategoryRenderer extends TreeViewNodeRenderer {
             if (node instanceof Category) {
                 Category catNode = (Category)node;
 
-                /*if (expanded
+                if (expanded
                     && catNode instanceof CategoryParent) {
-                    CategoryParent catParent = (CategoryParent)catNode;
-                    //icon = Image.load(new URL())
-
-                    if (icon == null) {
-                        icon = treeBranch.getIcon();
+                    java.nio.file.Path iconPath = FileSystems.getDefault().getPath("res", "images", "horizontal_folder_open.png");
+                    try {
+                    	icon = Image.load(iconPath.toUri().toURL());
+                    } catch (Exception e) {
+                    	e.printStackTrace();
                     }
+
                 } else {
-                    icon = treeNode.getIcon();
-                }*/
+                    java.nio.file.Path iconPath = FileSystems.getDefault().getPath("res", "images", "horizontal_folder_closed.png");
+                    try {
+                    	icon = Image.load(iconPath.toUri().toURL());
+                    } catch (Exception e) {
+                    	e.printStackTrace();
+                    }
+                }
 
                 text = catNode.getName();
             } else {
@@ -45,9 +50,9 @@ public class CategoryRenderer extends TreeViewNodeRenderer {
             }
 
             // Update the image view
-            /*imageView.setImage(icon);
+            imageView.setImage(icon);
             imageView.getStyles().put("opacity",
-                (treeView.isEnabled() && !disabled) ? 1.0f : 0.5f);*/
+                (treeView.isEnabled() && !disabled) ? 1.0f : 0.5f);
 
             // Update the label
             label.setText(text != null ? text : "");

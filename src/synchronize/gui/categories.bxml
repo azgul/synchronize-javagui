@@ -1,14 +1,14 @@
 <sync:Categories 
 		xmlns:bxml="http://pivot.apache.org/bxml" 
 		xmlns="org.apache.pivot.wtk"
-		xmlns:sync="synchronize">
+		xmlns:sync="synchronize.gui">
 		<columns>
 			<TablePane.Column width="1*" />
 		</columns>
 		<TablePane.Row height="1*">
 		    <ScrollPane horizontalScrollBarPolicy="fill_to_capacity">
 			        <TreeView bxml:id="categories" selectMode="multi">
-			            <treeData>
+			            <!-- <treeData>
 			                <TreeBranch xmlns="org.apache.pivot.wtk.content">
 							    <TreeBranch text="Piglets" expandedIcon="@horizontal_folder_open.png" icon="@horizontal_folder_closed.png">
 							        <TreeNode text="Benefits" icon="@horizontal_folder_closed.png" />
@@ -53,7 +53,7 @@
 							        <TreeNode text="Marketing material" icon="@horizontal_folder_closed.png" />
 							    </TreeBranch>
 							</TreeBranch>
-			            </treeData>
+			            </treeData>-->
 			        </TreeView>
 		    </ScrollPane>
 	    </TablePane.Row>

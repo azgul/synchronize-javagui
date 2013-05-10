@@ -2,7 +2,7 @@
     styles="{padding:{top:0, left:4, bottom:4, right:4}, showWindowControls:false}"
     xmlns:bxml="http://pivot.apache.org/bxml"
     xmlns:content="org.apache.pivot.wtk.content"
-    xmlns:menus="synchronize"
+    xmlns:menus="synchronize.gui"
     xmlns="org.apache.pivot.wtk">
     <bxml:define>
         <FileBrowserSheet bxml:id="fileBrowserSheet"/>
@@ -42,7 +42,7 @@
     			<TablePane.Column width="1*"/>
     		</columns>
     		<TablePane.Row height="222">
-    			<ImageView image="@../../res/images/hp800booster-movie_topbanner_gb.jpg" height="222"/>
+    			<ImageView image="@../../../res/images/hp800booster-movie_topbanner_gb.jpg" height="222"/>
 			</TablePane.Row>
 			<TablePane.Row height="1*">
 			    <SplitPane bxml:id="splitPane" orientation="horizontal" splitRatio="0.15">

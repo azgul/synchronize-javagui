@@ -1,11 +1,10 @@
-package synchronize;
+package synchronize.gui;
 
-import org.apache.pivot.collections.Sequence;
 import org.apache.pivot.collections.Sequence.Tree.Path;
 import org.apache.pivot.collections.immutable.ImmutableList;
 import org.apache.pivot.wtk.Component;
-import org.apache.pivot.wtk.TreeView;
 import org.apache.pivot.wtk.Mouse.Button;
+import org.apache.pivot.wtk.TreeView;
 import org.apache.pivot.wtk.skin.terra.TerraTreeViewSkin;
 
 public class SyncTreeViewSkin extends TerraTreeViewSkin {

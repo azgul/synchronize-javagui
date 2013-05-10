@@ -1,10 +1,10 @@
-package synchronize;
+package synchronize.gui;
 
 import java.net.URL;
+import java.nio.charset.Charset;
 import java.nio.file.FileSystems;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.nio.file.Paths;
 
 import org.apache.pivot.beans.BXML;
 import org.apache.pivot.beans.Bindable;
@@ -18,6 +18,8 @@ import org.apache.pivot.wtk.PushButton;
 import org.apache.pivot.wtk.TablePane;
 import org.apache.pivot.wtk.Theme;
 import org.apache.pivot.wtk.TreeView;
+
+import synchronize.api.Category;
 
 import com.google.gson.Gson;
 
@@ -38,11 +40,10 @@ public class Categories extends TablePane implements Bindable {
 	@Override
 	public void initialize(Map<String, Object> namespace, URL location, Resources resources) {
 		// read categories from json
-		//categories.setNodeRenderer(new CategoryRenderer());
+		categories.setNodeRenderer(new CategoryRenderer());
 		Category[] cats = parseJSON();
 		List<Category> data = makeList(cats);
-		System.out.println(data.getLength());
-		//categories.setTreeData(data);
+		categories.setTreeData(data);
 		
 		reset.getButtonPressListeners().add(new ResetButton(categories));
 	}
@@ -93,7 +94,13 @@ public class Categories extends TablePane implements Bindable {
 	
 	private Category[] parseJSON() {
 		Gson gson = new Gson();
-		return gson.fromJson("[{'name':'Test','image':'http://google.com','id':1,'parentId':0},{'name':'TestChild','image':'http://google.com','id':2,'parentId':1}]", Category[].class);
+		Path sample = FileSystems.getDefault().getPath("res", "sample-data", "categories-sample.json");
+		try {
+			return gson.fromJson(Files.newBufferedReader(sample, Charset.forName("UTF-8")), Category[].class);
+		} catch(Exception e) {
+			e.printStackTrace();
+			return new Category[0];
+		}
 	}
 
 }

@@ -1,4 +1,4 @@
-package synchronize;
+package synchronize.gui;
 
 import org.apache.pivot.wtk.Button;
 import org.apache.pivot.wtk.ButtonPressListener;

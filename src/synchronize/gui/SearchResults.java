@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package synchronize;
+package synchronize.gui;
 
 import java.io.IOException;
 import java.net.URL;
@@ -26,14 +26,6 @@ public class SearchResults extends ScrollPane implements Bindable {
 	
 	public void wtbContent(){
 		results.removeAll();
-		
-		try{
-			for(int i = 0; i < 2; i++)
-				results.add(wtbResult());
-			
-		}catch(Exception e){
-			e.printStackTrace();
-		}
 	}
 	
 	public void refresh(List<SearchResult> items){
@@ -60,22 +52,6 @@ public class SearchResults extends ScrollPane implements Bindable {
 			}
 		}
 		
-	}
-	
-	private SearchResultItem wtbResult() throws Exception{
-		BXMLSerializer bxmlSerializer = new BXMLSerializer();
-		SearchResultItem result = (SearchResultItem)bxmlSerializer.readObject(SearchResultItem.class, "searchresultitem.bxml");
-			
-		result.setAbstract("whatup!!! 8-)");
-		result.setModifiedDate("01-01-1970");
-		result.setTitle("(Datasheet) MIn super seje fil");
-		
-		int min = 0;
-		int max = SearchResultItem.LANG.values().length-1;
-		int rand = min + (int)(Math.random() * ((max - min) + 1));
-			
-		result.setLanguage(SearchResultItem.LANG.values()[rand]);
-		return result;
 	}
 
 	@Override
