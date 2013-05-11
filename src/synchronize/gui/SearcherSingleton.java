@@ -3,6 +3,7 @@ package synchronize.gui;
 import java.io.IOException;
 import java.nio.file.FileSystems;
 import java.nio.file.Path;
+import java.util.List;
 
 import org.apache.lucene.queryparser.classic.ParseException;
 import org.apache.pivot.util.concurrent.Task;
@@ -10,24 +11,59 @@ import org.apache.pivot.util.concurrent.TaskListener;
 import org.apache.pivot.wtk.Alert;
 import org.apache.pivot.wtk.MessageType;
 import org.apache.pivot.wtk.TaskAdapter;
+import org.apache.pivot.wtk.WTKListenerList;
 
 import pdfsearch.IndexFactory;
 import pdfsearch.MMapIndexFactory;
+import pdfsearch.SearchResult;
 import pdfsearch.Searcher;
 
 public class SearcherSingleton {
 	private static SearcherSingleton instance;
 	private Searcher searcher;
+    private WTKListenerList<SearcherListener> listListeners = new WTKListenerList<SearcherListener>();
+    private SyncWindow window;
 	
 	public static void initInstance(SyncWindow w) {
-		instance = new SearcherSingleton(w);
+		getInstance().init(w);
 	}
 	
 	public static SearcherSingleton getInstance() {
+		if(instance == null)
+			instance = new SearcherSingleton();
 		return instance;
 	}
 	
-	private SearcherSingleton(final SyncWindow window) {
+	public WTKListenerList<SearcherListener> getSearchListeners() {
+		return listListeners;
+	}
+	
+	public void search(String searchTerm) {
+		if(searcher == null) {
+			System.err.println("Searching before searcher was initialized.");
+			return;
+		}
+		
+		try {
+			List<SearchResult> results = searcher.search(searchTerm);
+			for(SearcherListener listener : listListeners) {
+				listener.onSearch(results);
+			}
+		} catch(ParseException e) {
+			// TODO: add alert error message
+			Alert.alert(MessageType.WARNING, "The search string is not valid.", window);
+			e.printStackTrace();
+		} catch(IOException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	private SearcherSingleton() {
+		
+	}
+	
+	private void init(final SyncWindow window) {
+		this.window = window;
 		final Path searchPath = FileSystems.getDefault().getPath("res", "pdfs");
 		Path indexPath = FileSystems.getDefault().getPath("res", "index");
 		IndexFactory factory = new MMapIndexFactory(indexPath);

@@ -23,14 +23,14 @@ import pdfsearch.SearchResult;
  *
  * @author Lars
  */
-public class SearchResults extends ScrollPane implements Bindable {
+public class SearchResults extends ScrollPane implements Bindable, SearcherListener {
 	@BXML private FillPane results = null;
 	
 	public void wtbContent(){
 		results.removeAll();
 	}
 	
-	public void refresh(List<SearchResult> items){
+	public void onSearch(List<SearchResult> items){
 		results.removeAll();
 		
 		
