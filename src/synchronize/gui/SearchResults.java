@@ -38,7 +38,7 @@ public class SearchResults extends ScrollPane implements Bindable {
         TaskListener<Void> taskListener = new TaskListener<Void>() {
             @Override
             public void taskExecuted(Task<Void> task) {
-                System.out.println("Added search results.");
+            	
             }
 
             @Override

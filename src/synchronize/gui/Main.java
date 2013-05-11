@@ -7,10 +7,9 @@ import org.apache.pivot.wtk.Application;
 import org.apache.pivot.wtk.DesktopApplicationContext;
 import org.apache.pivot.wtk.Display;
 import org.apache.pivot.wtk.TextInput;
-import org.apache.pivot.wtk.Window;
 
 public class Main implements Application {
-    private Window window = null;
+    private SyncWindow window = null;
     @BXML private TextInput searchField;
     
     public static void main(String[] args) {
@@ -21,8 +20,9 @@ public class Main implements Application {
     public void startup(Display display, Map<String, String> properties)
         throws Exception {
         BXMLSerializer bxmlSerializer = new BXMLSerializer();
-        window = (Window)bxmlSerializer.readObject(Main.class, "/synchronize/bxml/window.bxml");		
+        window = (SyncWindow)bxmlSerializer.readObject(Main.class, "/synchronize/bxml/window.bxml");		
         window.open(display);
+        SearcherSingleton.initInstance(window);
     }
 
     @Override

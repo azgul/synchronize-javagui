@@ -37,24 +37,27 @@
     </menuBar>
     
     <Border>
-    	<TablePane bxml:id="tablePane">
-    		<columns>
-    			<TablePane.Column width="1*"/>
-    		</columns>
-    		<TablePane.Row height="222">
-    			<ImageView image="@../../../res/images/hp800booster-movie_topbanner_gb.jpg" height="222"/>
-			</TablePane.Row>
-			<TablePane.Row height="1*">
-			    <SplitPane bxml:id="splitPane" orientation="horizontal" splitRatio="0.15">
-			        <left>
-		            	<bxml:include src="categories.bxml"/>
-			        </left>
-			        <right>
-			        	<bxml:include src="rightpane.bxml"/>
-			        </right>
-		        </SplitPane>
-	        </TablePane.Row>
-	    </TablePane>
+	    <StackPane bxml:id="stackPane">
+	    	<TablePane bxml:id="tablePane">
+	    		<columns>
+	    			<TablePane.Column width="1*"/>
+	    		</columns>
+	    		<TablePane.Row height="222">
+	    			<ImageView image="@../../../res/images/hp800booster-movie_topbanner_gb.jpg" height="222"/>
+				</TablePane.Row>
+				<TablePane.Row height="1*">
+				    <SplitPane bxml:id="splitPane" orientation="horizontal" splitRatio="0.15">
+				        <left>
+			            	<bxml:include src="categories.bxml"/>
+				        </left>
+				        <right>
+				        	<bxml:include src="rightpane.bxml"/>
+				        </right>
+			        </SplitPane>
+		        </TablePane.Row>
+		    </TablePane>
+		    <bxml:include src="progress.bxml" bxml:id="progress" />
+	    </StackPane>
     </Border>
     
 </menus:SyncWindow>
