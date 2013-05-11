@@ -3,6 +3,7 @@ package synchronize.gui;
 import java.io.IOException;
 import java.nio.file.FileSystems;
 import java.nio.file.Path;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.lucene.queryparser.classic.ParseException;
@@ -23,6 +24,7 @@ public class SearcherSingleton {
 	private Searcher searcher;
     private WTKListenerList<SearcherListener> listListeners = new WTKListenerList<SearcherListener>();
     private SyncWindow window;
+    private String lastSearchTerm;
 	
 	public static void initInstance(SyncWindow w) {
 		getInstance().init(w);
@@ -39,13 +41,30 @@ public class SearcherSingleton {
 	}
 	
 	public void search(String searchTerm) {
+		search(searchTerm, new ArrayList<Integer>());
+	}
+	
+	public void search(String searchTerm, ArrayList<Integer> categories) {
+		search(searchTerm, categories, new ArrayList<String>());
+	}
+	
+	public void search(String searchTerm, ArrayList<Integer> categories, ArrayList<String> languages) {
 		if(searcher == null) {
 			System.err.println("Searching before searcher was initialized.");
 			return;
 		}
 		
+		// cache search term, fetch from cache if argument is null
+		if(searchTerm == null && lastSearchTerm != null) {
+			searchTerm = lastSearchTerm;
+		} else if(searchTerm == null) {
+			searchTerm = "";
+		} else {
+			lastSearchTerm = searchTerm;
+		}
+		
 		try {
-			List<SearchResult> results = searcher.search(searchTerm);
+			List<SearchResult> results = searcher.search(searchTerm, categories, languages);
 			for(SearcherListener listener : listListeners) {
 				listener.onSearch(results);
 			}

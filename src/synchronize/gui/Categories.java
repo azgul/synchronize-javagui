@@ -41,6 +41,7 @@ public class Categories extends TablePane implements Bindable {
 	public void initialize(Map<String, Object> namespace, URL location, Resources resources) {
 		// read categories from json
 		categories.setNodeRenderer(new CategoryRenderer());
+		categories.getTreeViewSelectionListeners().add(new CategorySearchFilter());
 		Category[] cats = parseJSON();
 		List<Category> data = makeList(cats);
 		categories.setTreeData(data);
