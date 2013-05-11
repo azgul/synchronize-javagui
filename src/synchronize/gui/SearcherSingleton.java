@@ -7,6 +7,8 @@ import java.nio.file.Path;
 import org.apache.lucene.queryparser.classic.ParseException;
 import org.apache.pivot.util.concurrent.Task;
 import org.apache.pivot.util.concurrent.TaskListener;
+import org.apache.pivot.wtk.Alert;
+import org.apache.pivot.wtk.MessageType;
 import org.apache.pivot.wtk.TaskAdapter;
 
 import pdfsearch.IndexFactory;
@@ -26,7 +28,7 @@ public class SearcherSingleton {
 	}
 	
 	private SearcherSingleton(final SyncWindow window) {
-		Path searchPath = FileSystems.getDefault().getPath("res", "pdfs");
+		final Path searchPath = FileSystems.getDefault().getPath("res", "pdfs");
 		Path indexPath = FileSystems.getDefault().getPath("res", "index");
 		IndexFactory factory = new MMapIndexFactory(indexPath);
 		
@@ -38,17 +40,18 @@ public class SearcherSingleton {
 	        TaskListener<Integer> taskListener = new TaskListener<Integer>() {
 	            @Override
 	            public void taskExecuted(Task<Integer> task) {
-	            	if(task.getResult() != 0)
+	            	if(task.getResult() != 0) {
 	            		System.out.println("Index built.");
-	            	else
+		        		// do first search on init to avoid index searcher caching overhead on user search
+		        		try {
+		        			searcher.search("piglet");
+		        		} catch (IOException | ParseException e) {
+		        			e.printStackTrace();
+		        		}
+	            	} else {
+	            		Alert.alert(MessageType.ERROR, "No pdf files found in \"" + searchPath.toAbsolutePath() + "\".", window);
 	            		System.out.println("No files added to index.");
-
-	        		// do first search on init to avoid index searcher caching overhead on user search
-	        		try {
-	        			searcher.search("piglet");
-	        		} catch (IOException | ParseException e) {
-	        			e.printStackTrace();
-	        		}
+	            	}
 	        		
 	        		window.progress.setEnabled(false);
 	        		window.progress.setVisible(false);
