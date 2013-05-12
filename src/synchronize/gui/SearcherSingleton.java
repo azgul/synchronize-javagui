@@ -3,8 +3,9 @@ package synchronize.gui;
 import java.io.IOException;
 import java.nio.file.FileSystems;
 import java.nio.file.Path;
-import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import org.apache.lucene.queryparser.classic.ParseException;
 import org.apache.pivot.util.concurrent.Task;
@@ -41,14 +42,14 @@ public class SearcherSingleton {
 	}
 	
 	public void search(String searchTerm) {
-		search(searchTerm, new ArrayList<Integer>());
+		search(searchTerm, new HashSet<Integer>());
 	}
 	
-	public void search(String searchTerm, ArrayList<Integer> categories) {
-		search(searchTerm, categories, new ArrayList<String>());
+	public void search(String searchTerm, Set<Integer> categories) {
+		search(searchTerm, categories, new HashSet<String>());
 	}
 	
-	public void search(String searchTerm, ArrayList<Integer> categories, ArrayList<String> languages) {
+	public void search(String searchTerm, Set<Integer> categories, Set<String> languages) {
 		if(searcher == null) {
 			System.err.println("Searching before searcher was initialized.");
 			return;
@@ -69,7 +70,6 @@ public class SearcherSingleton {
 				listener.onSearch(results);
 			}
 		} catch(ParseException e) {
-			// TODO: add alert error message
 			Alert.alert(MessageType.WARNING, "The search string is not valid.", window);
 			e.printStackTrace();
 		} catch(IOException e) {

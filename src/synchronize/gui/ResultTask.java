@@ -11,6 +11,7 @@ import org.apache.pivot.wtk.ApplicationContext;
 import org.apache.pivot.wtk.Container;
 
 import pdfsearch.SearchResult;
+import synchronize.api.Category;
 
 public class ResultTask extends Task<Void> {
 	
@@ -32,7 +33,7 @@ public class ResultTask extends Task<Void> {
 				result.setAbstract("Bacon ipsum dolor sit amet meatball drumstick spare ribs capicola, salami corned beef t-bone andouille cow short ribs ham. Sirloin turkey t-bone doner hamburger frankfurter ham hock short ribs pig cow venison jerky. Capicola tenderloin ground round, venison shoulder bresaola pork hamburger chicken pastrami ham hock chuck tail short loin brisket.");
 				
 				result.setModifiedDate(item.getModifiedDate());
-				result.setTitle("(" + item.getCategory() + ") " + item.getTitle());
+				result.setTitle("(" + CategoriesSingleton.getInstance().findById(item.getCategory()).getName() + ") " + item.getTitle());
 				result.setLanguage(SearchResultItem.LANG.getLanguage(item.getLanguage()));
 				result.setPdfPath(item.getPdf().getAbsolutePath());
 				
@@ -49,6 +50,16 @@ public class ResultTask extends Task<Void> {
 			}
 		}
 		return null;
+	}
+	
+	private String getCategoryPath(int category) {
+		List<Category> categoryPath = CategoriesSingleton.getInstance().getPath(category);
+		StringBuilder str = new StringBuilder();
+		for(Category cat : categoryPath) {
+			str.append(cat.getName());
+			str.append(" > ");
+		}
+		return str.substring(0, -3);
 	}
 
 }

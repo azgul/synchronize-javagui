@@ -38,6 +38,23 @@ public class CategoryParent extends Category implements List<Category> {
 		else
 			return null;
 	}
+	
+	public Category findById(int id) {
+		if(this.id == id)
+			return this;
+		
+		for(Category child : children) {
+			if(child instanceof CategoryParent) {
+				Category found = ((CategoryParent)child).findById(id);
+				if(found != null)
+					return found;
+			} else {
+				if(child.getId() == id)
+					return child;
+			}
+		}
+		return null;
+	}
 
 	@Override
 	public int indexOf(Category category) {
