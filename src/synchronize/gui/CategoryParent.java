@@ -10,7 +10,6 @@ import org.apache.pivot.collections.Sequence;
 import org.apache.pivot.util.ListenerList;
 import org.apache.pivot.wtk.media.Image;
 
-import synchronize.api.Category;
 
 public class CategoryParent extends Category implements List<Category> {
 	

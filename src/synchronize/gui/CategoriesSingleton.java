@@ -9,7 +9,6 @@ import java.util.List;
 
 import org.apache.pivot.collections.HashMap;
 
-import synchronize.api.Category;
 
 import com.google.gson.Gson;
 

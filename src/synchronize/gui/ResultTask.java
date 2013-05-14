@@ -11,7 +11,6 @@ import org.apache.pivot.wtk.ApplicationContext;
 import org.apache.pivot.wtk.Container;
 
 import pdfsearch.SearchResult;
-import synchronize.api.Category;
 
 public class ResultTask extends Task<Void> {
 	

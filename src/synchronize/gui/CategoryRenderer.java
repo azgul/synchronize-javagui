@@ -10,7 +10,6 @@ import org.apache.pivot.wtk.TreeView.NodeCheckState;
 import org.apache.pivot.wtk.content.TreeViewNodeRenderer;
 import org.apache.pivot.wtk.media.Image;
 
-import synchronize.api.Category;
 
 public class CategoryRenderer extends TreeViewNodeRenderer {
 
