@@ -1,0 +1,3 @@
+<sync:LanguageFilter styles="{padding: 10}" bxml:id="languageFilter" xmlns="org.apache.pivot.wtk" xmlns:bxml="http://pivot.apache.org/bxml" xmlns:sync="synchronize.gui" xmlns:content="org.apache.pivot.wtk.content">
+	<Label text="Filter by languages: "/>
+</sync:LanguageFilter>

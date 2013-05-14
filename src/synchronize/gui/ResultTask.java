@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.apache.pivot.beans.BXMLSerializer;
 import org.apache.pivot.serialization.SerializationException;
+import org.apache.pivot.util.concurrent.AbortException;
 import org.apache.pivot.util.concurrent.Task;
 import org.apache.pivot.util.concurrent.TaskExecutionException;
 import org.apache.pivot.wtk.ApplicationContext;
@@ -21,10 +22,15 @@ public class ResultTask extends Task<Void> {
 		this.items = items;
 		this.results = results;
 	}
+	
+	
 
 	@Override
 	public Void execute() throws TaskExecutionException {
 		for( SearchResult item : items ){
+			if(abort)
+				throw new AbortException();
+			
 			try{
 				BXMLSerializer bxmlSerializer = new BXMLSerializer();
 				final SearchResultItem result = (SearchResultItem)bxmlSerializer.readObject(SearchResultItem.class, "/synchronize/bxml/searchresultitem.bxml");

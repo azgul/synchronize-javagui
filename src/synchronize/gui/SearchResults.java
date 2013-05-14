@@ -9,6 +9,7 @@ import java.util.List;
 
 import org.apache.pivot.beans.BXML;
 import org.apache.pivot.beans.Bindable;
+import org.apache.pivot.collections.LinkedList;
 import org.apache.pivot.collections.Map;
 import org.apache.pivot.util.Resources;
 import org.apache.pivot.util.concurrent.Task;
@@ -25,31 +26,39 @@ import pdfsearch.SearchResult;
  */
 public class SearchResults extends ScrollPane implements Bindable, SearcherListener {
 	@BXML private FillPane results = null;
+	ResultTask resultTask = null;
+	volatile boolean waitForAbort = false;
 	
 	public void wtbContent(){
 		results.removeAll();
 	}
 	
-	public void onSearch(List<SearchResult> items){
+	protected void resetResultTask(){
+		resultTask = null;
+	}
+	
+	protected void resetAbortFlag(){
+		waitForAbort = false;
+	}
+	
+	public void onSearch(final List<SearchResult> items){
 		results.removeAll();
 		
-		
-		ResultTask resultTask = new ResultTask(items, results);
+		resultTask = new ResultTask(items, results);
         TaskListener<Void> taskListener = new TaskListener<Void>() {
             @Override
             public void taskExecuted(Task<Void> task) {
-            	
+				System.out.println("Finished! " + items.size());
             }
 
             @Override
             public void executeFailed(Task<Void> task) {
-
                 System.err.println(task.getFault());
             }
+			
         };
 
         resultTask.execute(new TaskAdapter<Void>(taskListener));
-		
 	}
 
 	@Override

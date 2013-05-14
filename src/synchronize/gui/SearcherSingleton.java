@@ -26,6 +26,8 @@ public class SearcherSingleton {
     private WTKListenerList<SearcherListener> listListeners = new WTKListenerList<SearcherListener>();
     private SyncWindow window;
     private String lastSearchTerm;
+	private Set<Integer> lastCategories = new HashSet<>();
+	private Set<String> lastLanguages = new HashSet<>();
 	
 	public static void initInstance(SyncWindow w) {
 		getInstance().init(w);
@@ -42,11 +44,15 @@ public class SearcherSingleton {
 	}
 	
 	public void search(String searchTerm) {
-		search(searchTerm, new HashSet<Integer>());
+		search(searchTerm, lastCategories, lastLanguages);
 	}
 	
 	public void search(String searchTerm, Set<Integer> categories) {
-		search(searchTerm, categories, new HashSet<String>());
+		search(searchTerm, categories, lastLanguages);
+	}
+	
+	public void search(Set<String> languages){
+		search(null, lastCategories, languages);
 	}
 	
 	public void search(String searchTerm, Set<Integer> categories, Set<String> languages) {
@@ -63,6 +69,8 @@ public class SearcherSingleton {
 		} else {
 			lastSearchTerm = searchTerm;
 		}
+		lastCategories = categories;
+		lastLanguages = languages;
 		
 		try {
 			List<SearchResult> results = searcher.search(searchTerm, categories, languages);
