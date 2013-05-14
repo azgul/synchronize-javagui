@@ -105,6 +105,7 @@ public class SearchResultItem extends Border implements Bindable {
 	protected void openPdf(){
 		try {
 			File pdfFile = new File(pdfPath);
+			System.out.println(pdfPath);
 			if (pdfFile.exists() && Desktop.isDesktopSupported()) 
 				Desktop.getDesktop().browse(new URI(pdfFile.toURI().toString().replace("file:/","")));
 

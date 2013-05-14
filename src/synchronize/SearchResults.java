@@ -27,13 +27,13 @@ public class SearchResults extends ScrollPane implements Bindable {
 	public void wtbContent(){
 		results.removeAll();
 		
-		try{
+		/*try{
 			for(int i = 0; i < 2; i++)
 				results.add(wtbResult());
 			
 		}catch(Exception e){
 			e.printStackTrace();
-		}
+		}*/
 	}
 	
 	public void refresh(List<SearchResult> items){
