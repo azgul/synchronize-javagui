@@ -6,7 +6,7 @@
 		</columns>
 
 		<TablePane.Row>
-			<Label bxml:id="pdfAbstract" styles="{wrapText:true}" text="Bacon ipsum dolor sit amet dolor meatloaf anim eiusmod pork, deserunt swine sausage brisket tri-tip. Shank ex labore, pancetta sunt non eiusmod magna qui short ribs chuck ullamco. Aliquip voluptate sausage nostrud pastrami eiusmod drumstick pork belly ut ham hock. Turducken est do ball tip, incididunt aliquip ex ut swine."/>
+			<Label bxml:id="pdfAbstract" styles="{wrapText:true, padding: 4}" text="Bacon ipsum dolor sit amet dolor meatloaf anim eiusmod pork, deserunt swine sausage brisket tri-tip. Shank ex labore, pancetta sunt non eiusmod magna qui short ribs chuck ullamco. Aliquip voluptate sausage nostrud pastrami eiusmod drumstick pork belly ut ham hock. Turducken est do ball tip, incididunt aliquip ex ut swine."/>
 
 			<BoxPane orientation="vertical" styles="{fill:true,horizontalAlignment:'center'}">
 				<PushButton bxml:id="viewPdf" buttonData="View PDF" preferredHeight="50"/>
