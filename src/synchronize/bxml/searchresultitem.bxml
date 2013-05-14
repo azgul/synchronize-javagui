@@ -1,4 +1,4 @@
-<sync:SearchResultItem title="Result 1" preferredHeight="150" styles="{padding:5,cornerRadii:3}" xmlns:sync="synchronize" xmlns="org.apache.pivot.wtk" xmlns:bxml="http://pivot.apache.org/bxml">
+<sync:SearchResultItem title="Result 1" preferredHeight="150" styles="{padding:5,cornerRadii:3}" xmlns:sync="synchronize.gui" xmlns="org.apache.pivot.wtk" xmlns:bxml="http://pivot.apache.org/bxml">
 	<TablePane bxml:id="result">
 		<columns>
 			<TablePane.Column width="1*"/>
@@ -12,7 +12,7 @@
 				<PushButton bxml:id="viewPdf" buttonData="View PDF" preferredHeight="50"/>
 				<Label text="MODIFIED" styles="{color:'#cccccc',font:{size: 10},horizontalAlignment:'center'}"/>
 				<Label bxml:id="modifiedDate" text="12-12-2012 12:12" styles="{horizontalAlignment:'center'}"/>
-				<ImageView bxml:id="languageImage" image="@../../res/flags/dk.png" height="11" width="16"/>
+				<ImageView bxml:id="languageImage" image="@../../../res/flags/dk.png" height="11" width="16"/>
 			</BoxPane>
 
 		</TablePane.Row>

@@ -1,12 +1,15 @@
-package synchronize;
+package synchronize.gui;
+
+import java.util.HashSet;
 
 import org.apache.pivot.collections.Sequence;
 import org.apache.pivot.collections.Sequence.Tree.Path;
 import org.apache.pivot.collections.immutable.ImmutableList;
 import org.apache.pivot.wtk.Component;
-import org.apache.pivot.wtk.TreeView;
 import org.apache.pivot.wtk.Mouse.Button;
+import org.apache.pivot.wtk.TreeView;
 import org.apache.pivot.wtk.skin.terra.TerraTreeViewSkin;
+
 
 public class SyncTreeViewSkin extends TerraTreeViewSkin {
 	
@@ -42,9 +45,27 @@ public class SyncTreeViewSkin extends TerraTreeViewSkin {
 				view.removeSelectedPath(path);
 			else
 				view.addSelectedPath(path);
+			
+			HashSet<Integer> categories = new HashSet<Integer>();
+			for(Path p : view.getSelectedPaths()) {
+				Category node = (Category)Sequence.Tree.get(view.getTreeData(), p);
+				addCategories(categories,node);
+			}
+			SearcherSingleton.getInstance().search(null, categories);
 		}
 		
 		return consumed;
+	}
+	
+	private void addCategories(HashSet<Integer> set, Category node) {
+		set.add(node.getId());
+		if(node instanceof CategoryParent) {
+			CategoryParent parent = (CategoryParent)node;
+			for(Category child : parent) {
+				addCategories(set, child);
+			}
+		}
+			
 	}
 	
 }

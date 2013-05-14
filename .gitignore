@@ -167,3 +167,5 @@ pip-log.txt
 /nbproject/*
 build.xml
 manifest.mf
+/res/index
+/res/pdfs

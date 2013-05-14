@@ -1,4 +1,4 @@
-package synchronize;
+package synchronize.gui;
 
 import java.net.URL;
 
@@ -7,6 +7,7 @@ import org.apache.pivot.beans.Bindable;
 import org.apache.pivot.collections.Map;
 import org.apache.pivot.util.Resources;
 import org.apache.pivot.wtk.Action;
+import org.apache.pivot.wtk.Border;
 import org.apache.pivot.wtk.Component;
 import org.apache.pivot.wtk.FileBrowserSheet;
 import org.apache.pivot.wtk.Frame;
@@ -22,8 +23,7 @@ public class SyncWindow extends Frame implements Bindable {
     @BXML private FileBrowserSheet fileBrowserSheet;
     @BXML private TabPane tabPane;
     @BXML private TreeView categories;
-	/*@BXML PushButton back;
-	@BXML Border backBorder;*/
+    @BXML public Border progress;
 
     private MenuHandler menuHandler = new MenuHandler.Adapter() {
         TextInputContentListener textInputTextListener = new TextInputContentListener.Adapter() {

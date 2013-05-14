@@ -1,0 +1,10 @@
+<Border bxml:id="progress" preferredWidth="320" preferredHeight="210" enabled="false" visible="false"
+	styles="{backgroundColor: '0x00000099'}"
+    xmlns:bxml="http://pivot.apache.org/bxml"
+    xmlns="org.apache.pivot.wtk"
+    xmlns:sync="synchronize.gui">
+    	<BoxPane styles="{horizontalAlignment: 'center', verticalAlignment: 'center'}" orientation="vertical">
+			<ActivityIndicator bxml:id="progressIndicator" active="true" preferredWidth="50" preferredHeight="50"/>
+			<Label bxml:id="progressLabel" text="Building index, this might take a few minutes..."/>
+		</BoxPane>
+</Border>

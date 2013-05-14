@@ -1,4 +1,4 @@
-package synchronize;
+package synchronize.gui;
 
 public class Category {
 	protected int id;
@@ -27,15 +27,15 @@ public class Category {
 		return parent;
 	}
 	
+	public void setParent(Category par) {
+		parent = par;
+	}
+	
 	@Override
 	public boolean equals(Object other) {
 		if(!(other instanceof Category))
 			return false;
 		return ((Category)other).getId() == this.id;
-	}
-	
-	public Category(int id) {
-		this.id = id;
 	}
 	
 	public Category() {

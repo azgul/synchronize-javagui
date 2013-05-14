@@ -1,7 +1,7 @@
 <sync:SearchResults 
 	xmlns="org.apache.pivot.wtk" 
 	xmlns:bxml="http://pivot.apache.org/bxml"
-	xmlns:sync="synchronize"
+	xmlns:sync="synchronize.gui"
 	TablePane.columnSpan="3" 
 	horizontalScrollBarPolicy="fill">
 	<FillPane bxml:id="results" orientation="vertical"/>
