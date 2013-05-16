@@ -74,6 +74,8 @@ public class SearchResultItem extends Border implements Bindable {
 	@BXML private PushButton viewPdf = null;
 	@BXML private Label modifiedDate = null;
 	@BXML private ImageView languageImage = null;
+	@BXML private Label breadcrumbs = null;
+	
 	private String pdfPath = "";
 
 	@Override
@@ -87,6 +89,10 @@ public class SearchResultItem extends Border implements Bindable {
 	
 	public void setModifiedDate(String s){
 		modifiedDate.setText(s);
+	}
+	
+	public void setBreadcrumbs(String s){
+		breadcrumbs.setText(s);
 	}
 	
 	public void setPdfPath(String s){
