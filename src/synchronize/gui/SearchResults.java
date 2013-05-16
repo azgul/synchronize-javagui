@@ -5,7 +5,6 @@
 package synchronize.gui;
 
 import java.net.URL;
-import java.util.List;
 
 import org.apache.pivot.beans.BXML;
 import org.apache.pivot.beans.Bindable;
@@ -19,7 +18,6 @@ import org.apache.pivot.wtk.TaskAdapter;
 
 import synchronize.asynctask.ResultTask;
 import synchronize.listeners.SearcherListener;
-import synchronize.pdfsearch.SearchResult;
 
 /**
  *
@@ -42,7 +40,7 @@ public class SearchResults extends ScrollPane implements Bindable, SearcherListe
 		waitForAbort = false;
 	}
 	
-	public synchronized void onSearch(final List<SearchResult> items){
+	public synchronized void onSearch(){
 		if(resultTask == null) {
 			resultTask = new ResultTask(results);
 	        TaskListener<Void> taskListener = new TaskListener<Void>() {

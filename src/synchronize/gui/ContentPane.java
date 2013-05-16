@@ -15,6 +15,7 @@ import org.apache.pivot.wtk.TextInput;
 import org.apache.pivot.wtk.TextInputContentListener;
 
 import synchronize.core.SearcherSingleton;
+import synchronize.listeners.LazyLoader;
 
 /**
  *
@@ -31,6 +32,9 @@ public class ContentPane extends TablePane implements Bindable {
 	@Override
 	public void initialize(final Map<String, Object> map, URL url, Resources rsrcs) {
 		SearcherSingleton.getInstance().getSearchListeners().add(searchResults);
+		
+		searchResults.getViewportListeners().add(new LazyLoader());
+		
 		try{
 			searchField.getTextInputContentListeners().add(new TextInputContentListener.Adapter(){
 				@Override

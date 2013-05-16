@@ -79,7 +79,7 @@ public class SearcherSingleton {
 		try {
 			lastResults = searcher.search(searchTerm, categories, languages);
 			for(SearcherListener listener : listListeners) {
-				listener.onSearch(lastResults);
+				listener.onSearch();
 			}
 		} catch(ParseException e) {
 			Alert.alert(MessageType.WARNING, "The search string is not valid.", window);

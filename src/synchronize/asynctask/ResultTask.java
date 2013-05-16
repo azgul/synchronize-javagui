@@ -21,6 +21,8 @@ import synchronize.pdfsearch.SearchResult;
 public class ResultTask extends Task<Void> {
 	
 	private Container results;
+	private int runningCounter = 0;
+	List<SearchResult> items;
 	
 	public ResultTask(Container results) {
 		this.results = results;
@@ -44,8 +46,21 @@ public class ResultTask extends Task<Void> {
 				}
 			});
 			System.out.println("After remove all queued");
-			List<SearchResult> items = SearcherSingleton.getInstance().getLastResults();
+			if(!SearcherSingleton.getInstance().getLastResults().equals(items)) {
+				items = SearcherSingleton.getInstance().getLastResults();
+				runningCounter = 0;
+			}
+			int start = runningCounter;
+			int i = 0;
 			for( SearchResult item : items ){
+				// do not add if we already have added
+				i++; runningCounter++;
+				if(i < runningCounter)
+					continue;
+				
+				if(runningCounter - start > 10)
+					break;
+				
 				// abort if the abort flag was set
 				if(abort)
 					throw new AbortException("Task was aborted.");
