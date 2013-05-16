@@ -1,6 +1,7 @@
 package synchronize.asynctask;
 
 import java.io.IOException;
+import java.util.Collections;
 import java.util.List;
 
 import org.apache.pivot.beans.BXMLSerializer;
@@ -44,6 +45,7 @@ public class ResultTask extends Task<Void> {
 				result.setTitle("(" + CategoriesSingleton.getInstance().findById(item.getCategory()).getName() + ") " + item.getTitle());
 				result.setLanguage(SearchResultItem.LANG.getLanguage(item.getLanguage()));
 				result.setPdfPath(item.getPdf().getAbsolutePath());
+				result.setBreadcrumbs(getCategoryPath(item.getCategory()));
 				
 				ApplicationContext.queueCallback(new Runnable() {
                     @Override
@@ -63,11 +65,12 @@ public class ResultTask extends Task<Void> {
 	private String getCategoryPath(int category) {
 		List<Category> categoryPath = CategoriesSingleton.getInstance().getPath(category);
 		StringBuilder str = new StringBuilder();
+		Collections.reverse(categoryPath);
 		for(Category cat : categoryPath) {
 			str.append(cat.getName());
 			str.append(" > ");
 		}
-		return str.substring(0, -3);
+		return str.substring(0, str.length()-3);
 	}
 
 }

@@ -16,5 +16,8 @@
 			</BoxPane>
 
 		</TablePane.Row>
+		<TablePane.Row>
+			<Label bxml:id="breadcrumbs" text="" styles="{}"/>
+		</TablePane.Row>
 	</TablePane>
 </sync:SearchResultItem>
