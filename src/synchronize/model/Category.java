@@ -31,6 +31,13 @@ public class Category {
 		parent = par;
 	}
 	
+	public int getDepth() {
+		if(parent != null)
+			return parent.getDepth()+1;
+		else
+			return 1;
+	}
+	
 	@Override
 	public boolean equals(Object other) {
 		if(!(other instanceof Category))

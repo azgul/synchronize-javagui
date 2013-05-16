@@ -6,10 +6,10 @@
 			<TablePane.Column width="200"/>
 			<TablePane.Column width="0"/>
 		</columns>
-		<TablePane.Row height="25"> 
+		<TablePane.Row height="25">
 			<TextInput bxml:id="searchField"/>
 				<Label text="Sort by" styles="{horizontalAlignment:'right', verticalAlignment:'center'}"/>	
-				<ListButton bxml:id="listButton" listData="['Modified date (desc)', 'Modified date (asc)']"/>
+				<ListButton bxml:id="listButton" listData="['Default', 'Modified date (desc)', 'Modified date (asc)', 'Last opened']"/>
 				<TablePane.Filler/>
 		</TablePane.Row>
 		<TablePane.Row height="1*">

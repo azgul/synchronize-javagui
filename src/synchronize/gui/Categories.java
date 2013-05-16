@@ -13,6 +13,7 @@ import org.apache.pivot.wtk.Theme;
 import org.apache.pivot.wtk.TreeView;
 
 import synchronize.core.CategoriesSingleton;
+import synchronize.listeners.CategorySelection;
 
 public class Categories extends TablePane implements Bindable {
 	@BXML private TreeView categories;
@@ -32,6 +33,7 @@ public class Categories extends TablePane implements Bindable {
 	public void initialize(Map<String, Object> namespace, URL location, Resources resources) {
 		categories.setNodeRenderer(new CategoryRenderer());
 		categories.setTreeData(CategoriesSingleton.getInstance().getTree());
+		categories.getTreeViewSelectionListeners().add(new CategorySelection());
 		
 		reset.getButtonPressListeners().add(new ResetButton(categories));
 	}
