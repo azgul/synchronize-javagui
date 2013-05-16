@@ -14,6 +14,8 @@ import org.apache.pivot.wtk.TablePane;
 import org.apache.pivot.wtk.TextInput;
 import org.apache.pivot.wtk.TextInputContentListener;
 
+import synchronize.core.SearcherSingleton;
+
 /**
  *
  * @author Lars

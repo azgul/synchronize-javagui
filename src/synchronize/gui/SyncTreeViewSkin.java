@@ -10,6 +10,9 @@ import org.apache.pivot.wtk.Mouse.Button;
 import org.apache.pivot.wtk.TreeView;
 import org.apache.pivot.wtk.skin.terra.TerraTreeViewSkin;
 
+import synchronize.core.SearcherSingleton;
+import synchronize.model.Category;
+
 
 public class SyncTreeViewSkin extends TerraTreeViewSkin {
 	

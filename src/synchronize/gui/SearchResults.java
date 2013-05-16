@@ -19,6 +19,8 @@ import org.apache.pivot.wtk.ScrollPane;
 import org.apache.pivot.wtk.TaskAdapter;
 
 import pdfsearch.SearchResult;
+import synchronize.asynctask.ResultTask;
+import synchronize.listeners.SearcherListener;
 
 /**
  *

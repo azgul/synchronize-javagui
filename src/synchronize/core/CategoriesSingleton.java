@@ -1,4 +1,4 @@
-package synchronize.gui;
+package synchronize.core;
 
 import java.nio.charset.Charset;
 import java.nio.file.FileSystems;
@@ -8,6 +8,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.pivot.collections.HashMap;
+
+import synchronize.gui.CategoryParent;
+import synchronize.model.Category;
 
 
 import com.google.gson.Gson;

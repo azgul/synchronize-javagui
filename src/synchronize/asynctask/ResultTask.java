@@ -1,4 +1,4 @@
-package synchronize.gui;
+package synchronize.asynctask;
 
 import java.io.IOException;
 import java.util.List;
@@ -12,6 +12,10 @@ import org.apache.pivot.wtk.ApplicationContext;
 import org.apache.pivot.wtk.Container;
 
 import pdfsearch.SearchResult;
+import synchronize.core.CategoriesSingleton;
+import synchronize.gui.SearchResultItem;
+import synchronize.gui.SearchResultItem.LANG;
+import synchronize.model.Category;
 
 public class ResultTask extends Task<Void> {
 	

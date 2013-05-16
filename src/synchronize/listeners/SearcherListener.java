@@ -1,4 +1,4 @@
-package synchronize.gui;
+package synchronize.listeners;
 
 import java.util.List;
 

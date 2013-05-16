@@ -1,4 +1,4 @@
-package synchronize.gui;
+package synchronize.core;
 
 import java.io.IOException;
 import java.nio.file.FileSystems;
@@ -19,6 +19,9 @@ import pdfsearch.IndexFactory;
 import pdfsearch.MMapIndexFactory;
 import pdfsearch.SearchResult;
 import pdfsearch.Searcher;
+import synchronize.asynctask.IndexTask;
+import synchronize.gui.SyncWindow;
+import synchronize.listeners.SearcherListener;
 
 public class SearcherSingleton {
 	private static SearcherSingleton instance;

@@ -1,4 +1,4 @@
-package synchronize.gui;
+package synchronize.model;
 
 public class Category {
 	protected int id;

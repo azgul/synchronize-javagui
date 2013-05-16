@@ -12,6 +12,8 @@ import org.apache.pivot.wtk.TablePane;
 import org.apache.pivot.wtk.Theme;
 import org.apache.pivot.wtk.TreeView;
 
+import synchronize.core.CategoriesSingleton;
+
 public class Categories extends TablePane implements Bindable {
 	@BXML private TreeView categories;
 	@BXML private PushButton reset;

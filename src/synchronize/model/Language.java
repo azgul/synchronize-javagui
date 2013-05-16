@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package synchronize.gui;
+package synchronize.model;
 
 import java.net.URL;
 import java.nio.file.Path;

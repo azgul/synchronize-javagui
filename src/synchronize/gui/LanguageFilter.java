@@ -18,6 +18,9 @@ import org.apache.pivot.wtk.ButtonPressListener;
 import org.apache.pivot.wtk.Checkbox;
 import org.apache.pivot.wtk.content.ButtonData;
 
+import synchronize.core.SearcherSingleton;
+import synchronize.model.Language;
+
 /**
  *
  * @author Lars

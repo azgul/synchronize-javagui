@@ -8,6 +8,8 @@ import org.apache.pivot.wtk.DesktopApplicationContext;
 import org.apache.pivot.wtk.Display;
 import org.apache.pivot.wtk.TextInput;
 
+import synchronize.core.SearcherSingleton;
+
 public class Main implements Application {
     private SyncWindow window = null;
     @BXML private TextInput searchField;
