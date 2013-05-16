@@ -44,7 +44,7 @@ public class ResultTask extends Task<Void> {
 				}
 			});
 			System.out.println("After remove all queued");
-			List<SearchResult> items = SearcherSingleton.getInstance().getLastResults(); 
+			List<SearchResult> items = SearcherSingleton.getInstance().getLastResults();
 			for( SearchResult item : items ){
 				// abort if the abort flag was set
 				if(abort)
