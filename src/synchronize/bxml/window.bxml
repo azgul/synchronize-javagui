@@ -43,7 +43,7 @@
 	    			<TablePane.Column width="1*"/>
 	    		</columns>
 	    		<TablePane.Row height="206">
-	    			<ImageView bxml:id="categoryImage" image="@../../../res/images/hp800booster-movie_topbanner_gb.jpg" height="205"/>
+	    			<ImageView bxml:id="categoryImage" image="@../../../res/images/category/default.png" height="205"/>
 				</TablePane.Row>
 				<TablePane.Row>
 	    			<bxml:include src="languagefilter.bxml" />
