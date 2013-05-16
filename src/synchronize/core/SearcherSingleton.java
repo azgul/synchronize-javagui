@@ -28,9 +28,10 @@ public class SearcherSingleton {
 	private Searcher searcher;
     private WTKListenerList<SearcherListener> listListeners = new WTKListenerList<SearcherListener>();
     private SyncWindow window;
-    private String lastSearchTerm;
+    private String lastSearchTerm = "";
 	private Set<Integer> lastCategories = new HashSet<>();
 	private Set<String> lastLanguages = new HashSet<>();
+	private List<SearchResult> lastResults;
 	
 	public static void initInstance(SyncWindow w) {
 		getInstance().init(w);
@@ -44,6 +45,10 @@ public class SearcherSingleton {
 	
 	public WTKListenerList<SearcherListener> getSearchListeners() {
 		return listListeners;
+	}
+	
+	public List<SearchResult> getLastResults() {
+		return lastResults;
 	}
 	
 	public void search(String searchTerm) {
@@ -64,21 +69,17 @@ public class SearcherSingleton {
 			return;
 		}
 		
-		// cache search term, fetch from cache if argument is null
-		if(searchTerm == null && lastSearchTerm != null) {
+		// fetch from cache if searchterm is null
+		if(searchTerm == null)
 			searchTerm = lastSearchTerm;
-		} else if(searchTerm == null) {
-			searchTerm = "";
-		} else {
-			lastSearchTerm = searchTerm;
-		}
 		lastCategories = categories;
 		lastLanguages = languages;
+		lastSearchTerm = searchTerm;
 		
 		try {
-			List<SearchResult> results = searcher.search(searchTerm, categories, languages);
+			lastResults = searcher.search(searchTerm, categories, languages);
 			for(SearcherListener listener : listListeners) {
-				listener.onSearch(results);
+				listener.onSearch(lastResults);
 			}
 		} catch(ParseException e) {
 			Alert.alert(MessageType.WARNING, "The search string is not valid.", window);

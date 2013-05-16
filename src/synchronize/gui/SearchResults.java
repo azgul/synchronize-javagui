@@ -42,24 +42,26 @@ public class SearchResults extends ScrollPane implements Bindable, SearcherListe
 		waitForAbort = false;
 	}
 	
-	public void onSearch(final List<SearchResult> items){
-		results.removeAll();
-		
-		resultTask = new ResultTask(items, results);
-        TaskListener<Void> taskListener = new TaskListener<Void>() {
-            @Override
-            public void taskExecuted(Task<Void> task) {
-				System.out.println("Finished! " + items.size());
-            }
-
-            @Override
-            public void executeFailed(Task<Void> task) {
-                System.err.println(task.getFault());
-            }
-			
-        };
-
-        resultTask.execute(new TaskAdapter<Void>(taskListener));
+	public synchronized void onSearch(final List<SearchResult> items){
+		if(resultTask == null) {
+			resultTask = new ResultTask(results);
+	        TaskListener<Void> taskListener = new TaskListener<Void>() {
+	            @Override
+	            public void taskExecuted(Task<Void> task) {
+					//System.out.println("Finished! " + items.size());
+	            }
+	
+	            @Override
+	            public void executeFailed(Task<Void> task) {
+	                System.err.println(task.getFault());
+	            }
+				
+	        };
+	
+	        resultTask.execute(new TaskAdapter<Void>(taskListener));
+		} else {
+			resultTask.wakeUp();
+		}
 	}
 
 	@Override

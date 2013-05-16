@@ -32,12 +32,15 @@ public class SyncTreeViewSkin extends TerraTreeViewSkin {
 		
 		boolean consumed = super.mouseDown(component, button, x, y);
 		started = !consumed;
+		System.out.println("After mousedown");
 		return consumed;
 	}
 	
 	@Override
 	public boolean mouseUp(Component component, Button button, int x, int y) {
+		System.out.println("Before mouseup");
 		boolean consumed = super.mouseUp(component, button, x, y);
+		System.out.println("After super mouseup");
 		if(started) {
 			TreeView view = (TreeView)component;
 			Path path = view.getNodeAt(y);
@@ -54,7 +57,9 @@ public class SyncTreeViewSkin extends TerraTreeViewSkin {
 				Category node = (Category)Sequence.Tree.get(view.getTreeData(), p);
 				addCategories(categories,node);
 			}
+			System.out.println("Before search");
 			SearcherSingleton.getInstance().search(null, categories);
+			System.out.println("After search");
 		}
 		
 		return consumed;
