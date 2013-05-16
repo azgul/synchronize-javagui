@@ -15,13 +15,13 @@ import org.apache.pivot.wtk.MessageType;
 import org.apache.pivot.wtk.TaskAdapter;
 import org.apache.pivot.wtk.WTKListenerList;
 
-import pdfsearch.IndexFactory;
-import pdfsearch.MMapIndexFactory;
-import pdfsearch.SearchResult;
-import pdfsearch.Searcher;
 import synchronize.asynctask.IndexTask;
 import synchronize.gui.SyncWindow;
 import synchronize.listeners.SearcherListener;
+import synchronize.pdfsearch.IndexFactory;
+import synchronize.pdfsearch.MMapIndexFactory;
+import synchronize.pdfsearch.SearchResult;
+import synchronize.pdfsearch.Searcher;
 
 public class SearcherSingleton {
 	private static SearcherSingleton instance;

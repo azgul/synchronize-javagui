@@ -4,8 +4,8 @@ import org.apache.pivot.util.concurrent.Task;
 import org.apache.pivot.util.concurrent.TaskExecutionException;
 import org.apache.pivot.wtk.ApplicationContext;
 
-import pdfsearch.Searcher;
 import synchronize.gui.SyncWindow;
+import synchronize.pdfsearch.Searcher;
 
 public class IndexTask extends Task<Integer> {
 	

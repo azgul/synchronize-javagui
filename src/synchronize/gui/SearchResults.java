@@ -9,7 +9,6 @@ import java.util.List;
 
 import org.apache.pivot.beans.BXML;
 import org.apache.pivot.beans.Bindable;
-import org.apache.pivot.collections.LinkedList;
 import org.apache.pivot.collections.Map;
 import org.apache.pivot.util.Resources;
 import org.apache.pivot.util.concurrent.Task;
@@ -18,9 +17,9 @@ import org.apache.pivot.wtk.FillPane;
 import org.apache.pivot.wtk.ScrollPane;
 import org.apache.pivot.wtk.TaskAdapter;
 
-import pdfsearch.SearchResult;
 import synchronize.asynctask.ResultTask;
 import synchronize.listeners.SearcherListener;
+import synchronize.pdfsearch.SearchResult;
 
 /**
  *

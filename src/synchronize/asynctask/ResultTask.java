@@ -11,11 +11,10 @@ import org.apache.pivot.util.concurrent.TaskExecutionException;
 import org.apache.pivot.wtk.ApplicationContext;
 import org.apache.pivot.wtk.Container;
 
-import pdfsearch.SearchResult;
 import synchronize.core.CategoriesSingleton;
 import synchronize.gui.SearchResultItem;
-import synchronize.gui.SearchResultItem.LANG;
 import synchronize.model.Category;
+import synchronize.pdfsearch.SearchResult;
 
 public class ResultTask extends Task<Void> {
 	

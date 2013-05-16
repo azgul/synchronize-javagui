@@ -2,7 +2,7 @@ package synchronize.listeners;
 
 import java.util.List;
 
-import pdfsearch.SearchResult;
+import synchronize.pdfsearch.SearchResult;
 
 public interface SearcherListener {
 	public void onSearch(List<SearchResult> items);
