@@ -21,6 +21,8 @@ import org.apache.pivot.wtk.ImageView;
 import org.apache.pivot.wtk.Label;
 import org.apache.pivot.wtk.PushButton;
 
+import synchronize.core.Database;
+
 /**
  *
  * @author Lars
@@ -110,8 +112,10 @@ public class SearchResultItem extends Border implements Bindable {
 		try {
 			File pdfFile = new File(pdfPath);
 			System.out.println(pdfPath);
-			if (pdfFile.exists() && Desktop.isDesktopSupported()) 
+			if (pdfFile.exists() && Desktop.isDesktopSupported()) { 
 				Desktop.getDesktop().browse(new URI(pdfFile.toURI().toString().replace("file:/","")));
+				Database.getInstance().triggerFileRead(pdfPath);
+			}
 
 		} catch (Exception ex) {
 			ex.printStackTrace();

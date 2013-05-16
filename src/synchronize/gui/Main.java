@@ -8,6 +8,7 @@ import org.apache.pivot.wtk.DesktopApplicationContext;
 import org.apache.pivot.wtk.Display;
 import org.apache.pivot.wtk.TextInput;
 
+import synchronize.core.Database;
 import synchronize.core.SearcherSingleton;
 
 public class Main implements Application {
@@ -25,6 +26,8 @@ public class Main implements Application {
         window = (SyncWindow)bxmlSerializer.readObject(Main.class, "/synchronize/bxml/window.bxml");		
         window.open(display);
         SearcherSingleton.initInstance(window);
+        Database.getInstance().init();
+        Database.getInstance().getAccessLogs();
     }
 
     @Override
