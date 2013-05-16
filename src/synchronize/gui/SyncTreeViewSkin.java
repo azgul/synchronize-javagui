@@ -11,6 +11,8 @@ import org.apache.pivot.wtk.TreeView;
 import org.apache.pivot.wtk.skin.terra.TerraTreeViewSkin;
 
 import synchronize.core.SearcherSingleton;
+import synchronize.core.UIObservers;
+import synchronize.listeners.CategoryListener;
 import synchronize.model.Category;
 
 
@@ -55,6 +57,20 @@ public class SyncTreeViewSkin extends TerraTreeViewSkin {
 				addCategories(categories,node);
 			}
 			SearcherSingleton.getInstance().search(null, categories);
+			
+			if(!categories.isEmpty()){
+				
+				Category c = null;
+				if(!selectedBefore){
+					c = (Category)Sequence.Tree.get(view.getTreeData(), path);
+				}else
+					c = (Category)Sequence.Tree.get(view.getTreeData(), view.getSelectedPath());
+				for(CategoryListener cl : UIObservers.getCategoryListeners()){
+					cl.onSelect(c);
+				}
+			}else
+				for(CategoryListener cl : UIObservers.getCategoryListeners())
+					cl.onNoneSelected();
 		}
 		
 		return consumed;

@@ -92,7 +92,7 @@ public class SearchResultItem extends Border implements Bindable {
 	}
 	
 	public void setBreadcrumbs(String s){
-		breadcrumbs.setText(s);
+		breadcrumbs.setText("Path: " + s);
 	}
 	
 	public void setPdfPath(String s){
@@ -101,7 +101,6 @@ public class SearchResultItem extends Border implements Bindable {
 
 			@Override
 			public void buttonPressed(Button button) {
-				System.out.println("Opening PDF!");
 				openPdf();
 			}
 		});

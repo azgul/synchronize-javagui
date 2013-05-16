@@ -12,7 +12,6 @@ import org.apache.pivot.collections.HashMap;
 import synchronize.gui.CategoryParent;
 import synchronize.model.Category;
 
-
 import com.google.gson.Gson;
 
 public class CategoriesSingleton {
@@ -74,9 +73,9 @@ public class CategoriesSingleton {
 			if(cat.getParentId() == 0) {
 				root.add(c);
 			} else {
-				CategoryParent parent = parents.get(cat.getParentId());
+				CategoryParent parent = parents.get(c.getParentId());
 				if(parent != null) {
-					cat.setParent(parent);
+					c.setParent(parent);
 					parents.get(parent.add(c));
 				} else
 					missingParent.add(c);
