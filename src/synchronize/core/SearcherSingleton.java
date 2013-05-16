@@ -3,6 +3,8 @@ package synchronize.core;
 import java.io.IOException;
 import java.nio.file.FileSystems;
 import java.nio.file.Path;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -29,6 +31,7 @@ public class SearcherSingleton {
     private WTKListenerList<SearcherListener> listListeners = new WTKListenerList<SearcherListener>();
     private SyncWindow window;
     private String lastSearchTerm = "";
+	private String lastSortBy = "";
 	private Set<Integer> lastCategories = new HashSet<>();
 	private Set<String> lastLanguages = new HashSet<>();
 	private List<SearchResult> lastResults;
@@ -52,18 +55,26 @@ public class SearcherSingleton {
 	}
 	
 	public void search(String searchTerm) {
-		search(searchTerm, lastCategories, lastLanguages);
+		search(searchTerm, lastCategories, lastLanguages, lastSortBy);
+	}
+	
+	public void search(String searchTerm, String sortBy) {
+		search(searchTerm, lastCategories, lastLanguages, sortBy);
 	}
 	
 	public void search(String searchTerm, Set<Integer> categories) {
-		search(searchTerm, categories, lastLanguages);
+		search(searchTerm, categories, lastLanguages, lastSortBy);
 	}
 	
 	public void search(Set<String> languages){
-		search(null, lastCategories, languages);
+		search(null, lastCategories, languages, lastSortBy);
 	}
 	
-	public void search(String searchTerm, Set<Integer> categories, Set<String> languages) {
+	public void search(String searchTerm, Set<Integer> categories, Set<String> languages){
+		search(searchTerm, categories, languages, lastSortBy);
+	}
+	
+	public void search(String searchTerm, Set<Integer> categories, Set<String> languages, String sortBy) {
 		if(searcher == null) {
 			System.err.println("Searching before searcher was initialized.");
 			return;
@@ -75,9 +86,12 @@ public class SearcherSingleton {
 		lastCategories = categories;
 		lastLanguages = languages;
 		lastSearchTerm = searchTerm;
+		lastSortBy = sortBy;
 		
 		try {
 			lastResults = searcher.search(searchTerm, categories, languages);
+			lastResults = sortResults(lastResults, sortBy);
+			
 			for(SearcherListener listener : listListeners) {
 				listener.onSearch(lastResults);
 			}
@@ -87,6 +101,32 @@ public class SearcherSingleton {
 		} catch(IOException e) {
 			e.printStackTrace();
 		}
+	}
+	
+	private List<SearchResult> sortResults(List<SearchResult> results, final String sortBy){
+		if(sortBy.equals("") ||sortBy.equals("Default"))
+			return results;
+		
+		Collections.sort(results, new Comparator<SearchResult>(){
+
+			@Override
+			public int compare(SearchResult t, SearchResult t1) {
+				switch(sortBy){
+					case "Modified date (desc)":
+						long diff = (t1.getModifiedTimestamp() - t.getModifiedTimestamp()) / 1000;
+						return (int)diff;
+					case "Modified date (asc)":
+						long diff2 = (t.getModifiedTimestamp() - t1.getModifiedTimestamp()) / 1000;
+						return (int)diff2;
+					case "Last opened":
+						return 0;						
+					default:
+						return t.getTitle().compareTo(t1.getTitle());
+				}
+			}
+		});
+		
+		return results;
 	}
 	
 	private SearcherSingleton() {
