@@ -84,7 +84,9 @@ public class CategoriesSingleton {
 		}
 		
 		for(Category cat : missingParent) {
-			parents.get(cat.getParentId()).add(cat);
+			CategoryParent par = parents.get(cat.getParentId());
+			par.add(cat);
+			cat.setParent(par);
 		}
 		
 		return root;
