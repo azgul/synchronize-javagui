@@ -36,6 +36,7 @@ public class LanguageFilter extends BoxPane implements Bindable {
 		languages.add(new Language("en", "English", flagPath.resolve("en.png")));
 		languages.add(new Language("es", "Spanish", flagPath.resolve("es.png")));
 		languages.add(new Language("dk", "Danish", flagPath.resolve("dk.png")));
+		languages.add(new Language("de", "German", flagPath.resolve("de.png")));
 		
 		final HashSet<String> selectedLanguages = new HashSet<>();
 		
