@@ -126,6 +126,7 @@ public class SearcherSingleton {
 
 	            @Override
 	            public void executeFailed(Task<Integer> task) {
+	            	task.getFault().printStackTrace();
 	                System.err.println(task.getFault());
 	            }
 	        };

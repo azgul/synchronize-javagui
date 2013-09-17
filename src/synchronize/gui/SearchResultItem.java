@@ -47,8 +47,10 @@ public class SearchResultItem extends Border implements Bindable {
 				case "dk":
 					return LANG.DK;
 				case "en":
+				case "en-gb":
 					return LANG.EN;
 				case "de":
+				case "de-de":
 					return LANG.DE;
 				case "es":
 					return LANG.ES;

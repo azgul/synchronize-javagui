@@ -65,10 +65,7 @@ public class ResultTask extends Task<Void> {
 				try{
 					BXMLSerializer bxmlSerializer = new BXMLSerializer();
 					final SearchResultItem result = (SearchResultItem)bxmlSerializer.readObject(SearchResultItem.class, "/synchronize/bxml/searchresultitem.bxml");
-					//result.setAbstract(item.getAbstract());
-					// TODO: remove dummy abstract
-					result.setAbstract("Bacon ipsum dolor sit amet meatball drumstick spare ribs capicola, salami corned beef t-bone andouille cow short ribs ham. Sirloin turkey t-bone doner hamburger frankfurter ham hock short ribs pig cow venison jerky. Capicola tenderloin ground round, venison shoulder bresaola pork hamburger chicken pastrami ham hock chuck tail short loin brisket.");
-					
+					result.setAbstract(item.getAbstract());
 					result.setModifiedDate(item.getModifiedDate());
 					result.setTitle("#"+(i+1)+" (" + CategoriesSingleton.getInstance().findById(item.getCategory()).getName() + ") " + item.getTitle());
 					result.setLanguage(SearchResultItem.LANG.getLanguage(item.getLanguage()));
