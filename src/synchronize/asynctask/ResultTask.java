@@ -29,37 +29,28 @@ public class ResultTask extends Task<Void> {
 	}
 	
 	public synchronized void wakeUp() {
-		System.out.println("Waking up");
-		notify();
+		notifyAll();
 	}
 
 	@Override
 	public synchronized Void execute() throws TaskExecutionException {
 		while(true) {
-			System.out.println("Starting loop - before remove all");
 			boolean tryAgain = false;
-			ApplicationContext.queueCallback(new Runnable(){
-				public void run() {
-					System.out.println("Removing");
-					results.removeAll();
-					System.out.println("Done removing");
-				}
-			});
-			System.out.println("After remove all queued");
 			if(!SearcherSingleton.getInstance().getLastResults().equals(items)) {
 				items = SearcherSingleton.getInstance().getLastResults();
 				runningCounter = 0;
+				ApplicationContext.queueCallback(new Runnable(){
+					public void run() {
+						results.removeAll();
+					}
+				});
 			}
 			int start = runningCounter;
-			int i = 0;
-			for( SearchResult item : items ){
-				// do not add if we already have added
-				i++; runningCounter++;
-				if(i < runningCounter)
-					continue;
-				
-				if(runningCounter - start > 10)
+			for( int i = start; i < items.size(); i++, runningCounter++ ){
+				SearchResult item = items.get(i);
+				if(i - start >= 10)
 					break;
+				
 				
 				// abort if the abort flag was set
 				if(abort)
@@ -79,7 +70,7 @@ public class ResultTask extends Task<Void> {
 					result.setAbstract("Bacon ipsum dolor sit amet meatball drumstick spare ribs capicola, salami corned beef t-bone andouille cow short ribs ham. Sirloin turkey t-bone doner hamburger frankfurter ham hock short ribs pig cow venison jerky. Capicola tenderloin ground round, venison shoulder bresaola pork hamburger chicken pastrami ham hock chuck tail short loin brisket.");
 					
 					result.setModifiedDate(item.getModifiedDate());
-					result.setTitle("(" + CategoriesSingleton.getInstance().findById(item.getCategory()).getName() + ") " + item.getTitle());
+					result.setTitle("#"+(i+1)+" (" + CategoriesSingleton.getInstance().findById(item.getCategory()).getName() + ") " + item.getTitle());
 					result.setLanguage(SearchResultItem.LANG.getLanguage(item.getLanguage()));
 					result.setPdfPath(item.getPdf().getAbsolutePath());
 					result.setBreadcrumbs(getCategoryPath(item.getCategory()));
@@ -97,11 +88,9 @@ public class ResultTask extends Task<Void> {
 					e.printStackTrace();
 				}
 			}
-			System.out.println("After for");
 			// wait only if we did not break out of the loop to start over
 			if(!tryAgain) {
 				try {
-					System.out.println("Now waiting");
 					wait();
 				} catch (InterruptedException e) {
 					e.printStackTrace();
